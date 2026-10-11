@@ -1,535 +1,765 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="no-js">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mahmoud Saad — Marketing Data & Analytics</title>
-<meta name="description" content="Mahmoud Saad is a marketing analytics consultant in New York working across MMM, incrementality experiments, and attribution for global luxury and retail brands.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mahmoud Saad | Analytics Consultant, New York</title>
+<meta name="description" content="Mahmoud Saad, analytics consultant in New York. Measurement, root-cause investigation, dashboards, and automation for global luxury and retail brands at fifty-five (Brandtech Group).">
+<meta property="og:title" content="Mahmoud Saad | Analytics Consultant">
+<meta property="og:description" content="I find what a number means, check it against the source, and tell the story so people act.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mahmoud25112.github.io/">
+<meta property="og:image" content="https://mahmoud25112.github.io/images/mahmoud-saad.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.replace('no-js','js');</script>
 <style>
-  :root {
-    --bg: #fbfaf7;
-    --surface: #ffffff;
-    --ink: #1a1c1e;
-    --ink-soft: #4b5157;
-    --ink-faint: #7c838a;
-    --accent: #0f5c5a;
-    --accent-soft: #e3efee;
-    --line: #e7e4dd;
-    --radius: 14px;
-    --max: 1060px;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: var(--bg);
-    color: var(--ink);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+:root { --bg:#0E1114; --card:#1A1F24; --panel:#141A1F; --ink:#F2EFE8; --muted:#B8B3A9; --soft:#D0CCC3; --accent:#4FD1C9; --line:rgba(242,239,232,0.16); --line2:rgba(242,239,232,0.2); --line3:rgba(242,239,232,0.34); }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'IBM Plex Sans', system-ui, sans-serif; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); } a:hover { color: #7ED8D2; }
+img { max-width: 100%; }
+.display { font-family: 'Bricolage Grotesque', sans-serif; }
+.mono { font-family: 'IBM Plex Mono', monospace; }
+.muted { color: var(--muted); } .accent { color: var(--accent); }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+@media (max-width: 480px) { .wrap { padding-left: 16px; padding-right: 16px; } }
+section { max-width: 1120px; margin: 0 auto; padding: 56px 24px; border-top: 1px solid var(--line); }
+@media (max-width: 480px) { section { padding-left: 16px !important; padding-right: 16px !important; } header.hero { padding-left: 16px !important; padding-right: 16px !important; } }
+.eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+h2.h2 { margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(26px, 4vw, 34px); letter-spacing: -0.01em; }
+.btn { transition: transform .15s ease, background-color .15s ease; }
+.btn:hover { transform: translateY(-1px); }
+.lift { transition: transform .2s ease, border-color .2s ease; }
+.lift:hover { transform: translateY(-3px); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
-  /* Nav */
-  nav {
-    position: sticky; top: 0; z-index: 50;
-    background: rgba(251, 250, 247, 0.88);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--line);
-  }
-  .nav-inner {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 16px 24px; max-width: var(--max); margin: 0 auto;
-  }
-  .logo { font-weight: 800; font-size: 1.05rem; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
-  .logo span { color: var(--accent); }
-  .nav-links { display: flex; gap: 26px; }
-  .nav-links a {
-    color: var(--ink-soft); text-decoration: none; font-size: 0.92rem; font-weight: 500;
-    transition: color 0.15s;
-  }
-  .nav-links a:hover { color: var(--accent); }
-  @media (max-width: 640px) { .nav-links { display: none; } }
+/* reveal on scroll (only when JS runs) */
+.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+.js .reveal.in { opacity: 1; transform: none; }
 
-  /* Hero */
-  header { padding: 80px 0 64px; }
-  .hero-grid { display: grid; grid-template-columns: 1fr 300px; gap: 56px; align-items: center; }
-  .portrait-wrap { position: relative; width: 280px; height: 280px; justify-self: end; }
-  .portrait-wrap::before {
-    content: ""; position: absolute; inset: -14px;
-    border-radius: 50%; background: var(--accent-soft);
-  }
-  .portrait-wrap::after {
-    content: ""; position: absolute; inset: -14px;
-    border-radius: 50%; border: 2px dashed var(--accent); opacity: 0.35;
-  }
-  .portrait {
-    position: relative; z-index: 1; width: 100%; height: 100%;
-    border-radius: 50%; object-fit: cover;
-    border: 6px solid var(--surface);
-    box-shadow: 0 12px 32px rgba(15, 92, 90, 0.18);
-  }
-  @media (max-width: 820px) {
-    .hero-grid { grid-template-columns: 1fr; gap: 36px; }
-    .portrait-wrap { width: 150px; height: 150px; justify-self: start; order: -1; }
-    .portrait-wrap::before, .portrait-wrap::after { inset: -9px; }
-  }
-  .kicker {
-    display: inline-block; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em;
-    text-transform: uppercase; color: var(--accent);
-    background: var(--accent-soft); padding: 6px 14px; border-radius: 100px; margin-bottom: 22px;
-  }
-  h1 {
-    font-family: 'Fraunces', Georgia, serif;
-    font-size: clamp(2.3rem, 5.2vw, 3.7rem);
-    line-height: 1.1; letter-spacing: -0.02em; font-weight: 700;
-    max-width: 820px;
-  }
-  h1 em { font-style: normal; color: var(--accent); }
-  .lede {
-    margin-top: 22px; font-size: 1.13rem; color: var(--ink-soft); max-width: 660px;
-  }
-  .hero-cta { margin-top: 34px; display: flex; gap: 14px; flex-wrap: wrap; }
-  .btn {
-    display: inline-block; padding: 13px 26px; border-radius: 100px;
-    font-weight: 600; font-size: 0.95rem; text-decoration: none;
-    transition: transform 0.15s, box-shadow 0.15s;
-  }
-  .btn:hover { transform: translateY(-1px); }
-  .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 4px 14px rgba(15, 92, 90, 0.25); }
-  .btn-ghost { border: 1.5px solid var(--line); color: var(--ink); background: var(--surface); }
-  .hero-meta { margin-top: 42px; display: flex; gap: 40px; flex-wrap: wrap; }
-  .stat .num { font-family: 'Fraunces', Georgia, serif; font-size: 1.65rem; font-weight: 700; color: var(--ink); }
-  .stat .lbl { font-size: 0.85rem; color: var(--ink-faint); }
+/* timeline */
+.tl-scroll { overflow-x: auto; padding-bottom: 6px; scroll-behavior: auto; }
+.swipe-hint { display: none; }
+@media (max-width: 900px) { .swipe-hint { display: inline; } }
+.tl-track { display: flex; min-width: 900px; position: relative; padding-top: 10px; }
+.tl-line { position: absolute; left: 60px; right: 60px; top: 33px; height: 2px; background: rgba(242,239,232,0.28); transform-origin: left center; transition: transform 1.2s ease; }
+.js .tl-line { transform: scaleX(0); }
+.js .in .tl-line { transform: scaleX(1); }
+.tl-node { flex: 1 1 0; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 0 6px; min-height: 92px; background: transparent; border: none; cursor: pointer; font: inherit; color: inherit; }
+.tl-dot { display: block; width: 22px; height: 22px; border-radius: 50%; background: #343B42; border: 4px solid var(--bg); box-shadow: 0 0 0 2px #343B42; transition: background .3s ease; position: relative; z-index: 1; }
+.tl-node[aria-pressed="true"] .tl-dot { background: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
+.tl-node.pulse .tl-dot { animation: pulse .7s ease 1; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 2px var(--accent); } 50% { box-shadow: 0 0 0 10px rgba(79,209,201,0.25); } 100% { box-shadow: 0 0 0 2px var(--accent); } }
+.tl-when { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+.tl-label { font-weight: 600; font-size: 14px; text-align: center; }
+.tl-panel { display: flex; flex-wrap: wrap; gap: 28px; padding: 28px; border: 1px solid var(--line2); border-radius: 12px; background: var(--card); }
+.tl-panel[hidden] { display: none; }
+.tl-head { flex: 0 0 220px; display: flex; flex-direction: column; gap: 6px; }
+.tl-body { flex: 999 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+.lesson { margin: 0; font-size: 14px; color: var(--muted); border-left: 2px solid var(--accent); padding-left: 12px; }
+@media (max-width: 480px) { .tl-panel { padding: 20px; } .tl-head { flex-basis: 100%; } }
 
-  /* Sections */
-  section { padding: 76px 0; }
-  .section-head { margin-bottom: 44px; }
-  .eyebrow { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
-  h2 {
-    font-family: 'Fraunces', Georgia, serif;
-    font-size: clamp(1.7rem, 3.2vw, 2.3rem); font-weight: 700; letter-spacing: -0.01em;
-  }
-  .section-sub { margin-top: 10px; color: var(--ink-soft); max-width: 640px; }
-  .rule { border: none; border-top: 1px solid var(--line); max-width: var(--max); margin: 0 auto; }
+/* work */
+.tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+.tab { min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--line3); background: transparent; color: var(--ink); font: inherit; font-size: 14px; cursor: pointer; }
+.tab[aria-selected="true"] { border-color: var(--accent); background: var(--accent); color: #0B0E11; font-weight: 600; }
+.privacy { margin: 0; display: flex; gap: 10px; align-items: flex-start; max-width: 760px; padding: 12px 14px; border-radius: 8px; border: 1px solid var(--line2); background: var(--panel); color: var(--soft); font-size: 14px; }
+.cards { display: flex; flex-direction: column; gap: 16px; }
+.card { display: flex; flex-direction: column; gap: 14px; padding: 24px; border-radius: 12px; background: var(--card); border: 1px solid var(--line2); }
+.card[hidden] { display: none; }
+.card.open { border-color: var(--accent); }
+.card.enter { animation: rise .5s ease both; }
+@keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+.card-top { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+.card-text { flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+.card-visual { flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+.card-meta { display: flex; justify-content: space-between; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+.card-meta span:first-child { letter-spacing: 0.06em; text-transform: uppercase; }
+.card-number { font-weight: 800; font-size: 34px; line-height: 1.05; color: var(--accent); letter-spacing: -0.01em; }
+.card-title { margin: 0; font-weight: 600; font-size: 17px; }
+.card-why { margin: 0; color: var(--muted); font-size: 15px; }
+.case-toggle { align-self: flex-start; min-height: 44px; padding: 0 14px; border-radius: 6px; border: 1px solid var(--line3); background: transparent; color: var(--ink); font: inherit; font-size: 14px; cursor: pointer; }
+.case-toggle:hover { border-color: var(--accent); }
+.chart { margin: 0; display: flex; flex-direction: column; gap: 6px; }
+.chart-frame { padding: 10px; border-radius: 8px; background: #fff; }
+.chart-frame img { width: 100%; height: auto; display: block; }
+.chart.drawn { padding: 18px 18px 14px; border-radius: 8px; background: var(--panel); border: 1px solid rgba(242,239,232,0.14); gap: 10px; }
+.chart figcaption { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--soft); }
+.case-detail { display: flex; flex-direction: column; gap: 12px; padding-top: 14px; border-top: 1px solid var(--line2); font-size: 14px; animation: rise .35s ease both; }
+.case-detail[hidden] { display: none; }
+.case-detail .k { color: var(--accent); font-weight: 600; }
+.checked { padding: 10px 12px; border-radius: 6px; background: #0B0E11; color: var(--muted); }
+.checked .k2 { color: var(--ink); font-weight: 600; }
+@media (max-width: 480px) { .card { padding: 18px; } .card-number { font-size: 28px; } }
 
-  /* Story chapters */
-  .chapters { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; position: relative; }
-  .chapter {
-    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
-    padding: 30px 26px; position: relative;
-  }
-  .chapter .num {
-    font-family: 'Fraunces', Georgia, serif; font-size: 2.6rem; font-weight: 700;
-    color: var(--accent-soft); -webkit-text-stroke: 1.5px var(--accent); line-height: 1;
-  }
-  .chapter .years { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--accent); margin-top: 14px; }
-  .chapter h3 { font-family: 'Fraunces', Georgia, serif; font-size: 1.3rem; font-weight: 700; margin: 6px 0 10px; }
-  .chapter p { font-size: 0.93rem; color: var(--ink-soft); }
-  .chapter .metric { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); font-size: 0.88rem; font-weight: 600; }
-  .chapter .metric b { color: var(--accent); }
-  .chapter::after {
-    content: "→"; position: absolute; right: -17px; top: 50%; transform: translateY(-50%);
-    font-size: 1.3rem; color: var(--accent); font-weight: 700; z-index: 2;
-  }
-  .chapter:last-child::after { content: none; }
-  @media (max-width: 820px) {
-    .chapters { grid-template-columns: 1fr; }
-    .chapter::after { content: "↓"; right: auto; left: 50%; top: auto; bottom: -24px; transform: translateX(-50%); }
-  }
-
-  /* Triad */
-  .triad-wrap { display: grid; grid-template-columns: 1fr; gap: 36px; }
-  .triad-fig { text-align: center; }
-  .triad-fig svg { width: 100%; max-width: 560px; height: auto; }
-  .pillars { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
-  .pillar {
-    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
-    padding: 26px; border-top: 3px solid var(--accent);
-  }
-  .pillar h3 { font-size: 1.05rem; font-weight: 700; }
-  .pillar .q { font-size: 0.88rem; color: var(--ink-faint); font-style: italic; margin: 4px 0 14px; }
-  .pillar ul { list-style: none; }
-  .pillar li {
-    font-size: 0.9rem; color: var(--ink-soft); padding: 7px 0 7px 22px; position: relative;
-    border-bottom: 1px solid var(--line);
-  }
-  .pillar li:last-child { border-bottom: none; }
-  .pillar li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
-  @media (max-width: 820px) { .pillars { grid-template-columns: 1fr; } }
-
-  /* Numbers band */
-  .band { background: var(--ink); border-radius: 20px; padding: 44px 40px; }
-  .band-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; text-align: center; }
-  .band .num { font-family: 'Fraunces', Georgia, serif; font-size: 1.8rem; font-weight: 700; color: #fff; }
-  .band .lbl { font-size: 0.83rem; color: rgba(255,255,255,0.65); margin-top: 4px; }
-  @media (max-width: 820px) { .band-grid { grid-template-columns: 1fr 1fr; } }
-
-  /* Timeline */
-  .xp { border-left: 2px solid var(--line); margin-left: 8px; padding-left: 34px; }
-  .xp-item { position: relative; padding-bottom: 40px; }
-  .xp-item:last-child { padding-bottom: 0; }
-  .xp-item::before {
-    content: ""; position: absolute; left: -41px; top: 4px;
-    width: 12px; height: 12px; border-radius: 50%;
-    background: var(--accent); border: 3px solid var(--bg);
-  }
-  .xp-item .when {
-    display: inline-block; font-size: 0.78rem; font-weight: 700; color: var(--accent);
-    background: var(--accent-soft); padding: 3px 12px; border-radius: 100px;
-    letter-spacing: 0.04em; text-transform: uppercase;
-  }
-  .xp-item h3 { font-size: 1.12rem; font-weight: 700; margin: 8px 0 2px; }
-  .xp-item .org { font-size: 0.93rem; color: var(--ink-faint); margin-bottom: 8px; }
-  .xp-item p { font-size: 0.93rem; color: var(--ink-soft); max-width: 660px; }
-  .xp-item .hl { font-weight: 600; color: var(--ink); }
-
-  /* Work */
-  .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .work-card {
-    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
-    padding: 28px; transition: transform 0.15s, box-shadow 0.15s;
-  }
-  .work-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(26, 28, 30, 0.07); }
-  .work-card .cat { font-size: 0.76rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(--accent); margin-bottom: 10px; }
-  .work-card h3 { font-size: 1.12rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em; }
-  .work-card p { font-size: 0.93rem; color: var(--ink-soft); }
-  .work-card .result { margin-top: 14px; font-size: 0.88rem; font-weight: 600; color: var(--ink); }
-  .work-card .result::before { content: "→ "; color: var(--accent); }
-  .work-card a { color: var(--accent); font-weight: 600; text-decoration: none; }
-  .work-card a:hover { text-decoration: underline; }
-  @media (max-width: 760px) { .work-grid { grid-template-columns: 1fr; } }
-
-  /* Contact */
-  .contact-card {
-    background: var(--ink); color: #fff; border-radius: 20px;
-    padding: 56px 48px; text-align: center;
-  }
-  .contact-card h2 { color: #fff; }
-  .contact-card p { color: rgba(255, 255, 255, 0.75); margin: 12px auto 30px; max-width: 480px; }
-  .contact-card .btn-primary { background: #fff; color: var(--ink); box-shadow: none; }
-  .contact-card .btn-ghost { border-color: rgba(255, 255, 255, 0.3); color: #fff; background: transparent; }
-
-  footer { padding: 36px 0 48px; text-align: center; color: var(--ink-faint); font-size: 0.85rem; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .js .reveal { opacity: 1; transform: none; }
+  .js .tl-line { transform: none; }
+}
 </style>
 </head>
 <body>
+<a href="#work" style="position: absolute; left: -9999px">Skip to work</a>
 
-<nav>
-  <div class="nav-inner">
-    <a class="logo" href="#top">Mahmoud<span>.</span></a>
-    <div class="nav-links">
-      <a href="#story">Story</a>
-      <a href="#triad">How I help</a>
-      <a href="#timeline">Timeline</a>
-      <a href="#work">Work</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
+<nav class="wrap" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding-top: 22px; padding-bottom: 22px; border-bottom: 1px solid var(--line)">
+  <a href="#top" class="display" style="font-weight: 800; font-size: 18px; color: var(--ink); text-decoration: none; letter-spacing: -0.01em">Mahmoud Saad</a>
+  <div style="display: flex; flex-wrap: wrap; gap: 6px 22px">
+    <a href="#story" style="color: var(--muted); text-decoration: none; font-size: 14px; padding: 8px 0">Story</a>
+    <a href="#work" style="color: var(--muted); text-decoration: none; font-size: 14px; padding: 8px 0">Work</a>
+    <a href="#how" style="color: var(--muted); text-decoration: none; font-size: 14px; padding: 8px 0">How I work</a>
+    <a href="#me" style="color: var(--muted); text-decoration: none; font-size: 14px; padding: 8px 0">Me</a>
+    <a href="#contact" style="color: var(--muted); text-decoration: none; font-size: 14px; padding: 8px 0">Contact</a>
   </div>
 </nav>
 
-<header id="top">
-  <div class="wrap">
-    <div class="hero-grid">
-      <div>
-        <span class="kicker">Marketing Data &amp; Analytics · New York</span>
-        <h1>I learned marketing by spending my own money. Now I <em>measure it</em> for global brands.</h1>
-        <p class="lede">I'm Mahmoud Saad — analytics consultant at fifty-five (The Brandtech Group), working across MMM, incrementality experiments, and attribution for global luxury and retail brands.</p>
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="#work">See my work</a>
-          <a class="btn btn-ghost" href="#contact">Get in touch</a>
-        </div>
-      </div>
-      <div class="portrait-wrap">
-        <img class="portrait" src="data:image/jpeg;base64,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" alt="Mahmoud Saad">
-      </div>
+<header id="top" class="hero" style="max-width: 1120px; margin: 0 auto; padding: 72px 24px 56px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center">
+  <div style="flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+    <div class="eyebrow">Analytics Consultant · fifty-five (Brandtech Group) · New York</div>
+    <h1 class="display" style="margin: 0; font-weight: 800; font-size: clamp(36px, 5.4vw, 64px); line-height: 1.04; letter-spacing: -0.02em">Hi, I'm Mahmoud. I'm an analytics consultant in New York.</h1>
+    <p style="margin: 0; max-width: 620px; font-size: 18px; color: var(--muted)">Three years of analytics and measurement, learned the long way: my family business's ads with my own money, then 50+ accounts at an agency, and now the SQL, BigQuery, and dashboard work for a team serving global luxury and retail brands. I find what a number means, check it against the source, and tell the story so people act.</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px">
+      <a class="btn" href="Mahmoud_Saad_Resume.pdf" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 22px; border-radius: 8px; background: var(--accent); color: #0B0E11; font-weight: 600; text-decoration: none; font-size: 15px">Resume (PDF)</a>
+      <a class="btn" href="https://github.com/mahmoud25112" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 22px; border-radius: 8px; border: 1px solid var(--line3); color: var(--ink); text-decoration: none; font-size: 15px">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/mahmoud-saad-617876254/" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 22px; border-radius: 8px; border: 1px solid var(--line3); color: var(--ink); text-decoration: none; font-size: 15px">LinkedIn</a>
+      <a class="btn" href="mailto:mahmoud2511.saad@gmail.com" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 22px; border-radius: 8px; border: 1px solid var(--line3); color: var(--ink); text-decoration: none; font-size: 15px">Email</a>
     </div>
-    <div class="hero-meta">
-      <div class="stat"><div class="num">$2.7M–$5.9M</div><div class="lbl">Incremental revenue surfaced in one study</div></div>
-      <div class="stat"><div class="num">4 markets</div><div class="lbl">International MMM engagement, co-lead</div></div>
-      <div class="stat"><div class="num">50+ accounts</div><div class="lbl">Paid media managed before consulting</div></div>
+    <div id="stats" style="display: flex; flex-wrap: wrap; gap: 14px 40px; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line)">
+      <div><div class="display accent" style="font-weight: 800; font-size: 26px; line-height: 1.1" data-count="range" data-a="2.7" data-b="5.9">$2.7M to $5.9M</div><div class="muted" style="font-size: 13px">incremental revenue estimated in one study</div></div>
+      <div><div class="display accent" style="font-weight: 800; font-size: 26px; line-height: 1.1" data-count="k" data-a="767">767K</div><div class="muted" style="font-size: 13px">bot sessions caught hiding in Direct</div></div>
+      <div><div class="display accent" style="font-weight: 800; font-size: 26px; line-height: 1.1" data-count="hours" data-a="16">16 h to 1</div><div class="muted" style="font-size: 13px">dashboard build time, automated</div></div>
     </div>
+  </div>
+  <div style="flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 14px">
+    <img src="images/mahmoud-saad.jpg" alt="Mahmoud Saad" width="240" height="240" style="width: 240px; height: 240px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent)">
+    <div class="mono muted" style="font-size: 12px; text-align: center">Avenel, NJ · works in SoHo</div>
   </div>
 </header>
 
-<hr class="rule">
-
 <section id="story">
-  <div class="wrap">
-    <div class="section-head">
+  <div class="reveal" style="display: flex; flex-direction: column; gap: 28px">
+    <div style="display: flex; flex-direction: column; gap: 8px">
       <div class="eyebrow">The story</div>
-      <h2>Three chapters, one question: is the marketing actually working?</h2>
+      <h2 class="h2">Four years, one question: what does the number actually mean?</h2>
+      <p style="margin: 0; max-width: 640px" class="muted">Click a point on the line. Each one is a job, a number, and what it taught me.<span class="swipe-hint"> Swipe the line to see every point.</span></p>
     </div>
-    <div class="chapters">
-      <div class="chapter">
-        <div class="num">01</div>
-        <div class="years">2023 – 2025 · Skin in the game</div>
-        <h3>Built it myself</h3>
-        <p>Built the paid acquisition engine for my family's driving school — Google, Meta, GA4. When it's your own money, every dollar has to earn its place.</p>
-        <div class="metric">Monthly revenue <b>≈$6K → $20K+</b></div>
-      </div>
-      <div class="chapter">
-        <div class="num">02</div>
-        <div class="years">2025 – 2026 · Scale</div>
-        <h3>Ran it for 50+ clients</h3>
-        <p>Managed a ~$300K/month paid media portfolio at an agency — 50+ accounts across B2B, e-commerce, and lead-gen — tying every dollar to revenue.</p>
-        <div class="metric">Scaled a B2B account <b>3× at ~300% ROAS</b></div>
-      </div>
-      <div class="chapter">
-        <div class="num">03</div>
-        <div class="years">2026 – Now · Proof</div>
-        <h3>Measure it for global brands</h3>
-        <p>At fifty-five in New York, I build the measurement global luxury and retail brands rely on — MMM, experiments, and attribution.</p>
-        <div class="metric">Clients across <b>luxury, retail &amp; travel</b></div>
+    <div class="tl-scroll">
+      <div class="tl-track">
+        <div class="tl-line"></div>
+        <button class="tl-node" type="button" data-node="0" aria-pressed="false" aria-controls="tl-panel-0">
+          <span class="tl-dot"></span>
+          <span class="tl-when">2023</span>
+          <span class="tl-label">Family business</span>
+        </button>
+        <button class="tl-node" type="button" data-node="1" aria-pressed="false" aria-controls="tl-panel-1">
+          <span class="tl-dot"></span>
+          <span class="tl-when">Spring 2024</span>
+          <span class="tl-label">Research</span>
+        </button>
+        <button class="tl-node" type="button" data-node="2" aria-pressed="false" aria-controls="tl-panel-2">
+          <span class="tl-dot"></span>
+          <span class="tl-when">Fall 2024</span>
+          <span class="tl-label">Merck</span>
+        </button>
+        <button class="tl-node" type="button" data-node="3" aria-pressed="false" aria-controls="tl-panel-3">
+          <span class="tl-dot"></span>
+          <span class="tl-when">Dec 2024</span>
+          <span class="tl-label">Graduated</span>
+        </button>
+        <button class="tl-node" type="button" data-node="4" aria-pressed="false" aria-controls="tl-panel-4">
+          <span class="tl-dot"></span>
+          <span class="tl-when">Aug 2025</span>
+          <span class="tl-label">Agency</span>
+        </button>
+        <button class="tl-node" type="button" data-node="5" aria-pressed="true" aria-controls="tl-panel-5">
+          <span class="tl-dot"></span>
+          <span class="tl-when">Feb 2026</span>
+          <span class="tl-label">fifty-five</span>
+        </button>
       </div>
     </div>
-  </div>
-</section>
-
-<hr class="rule">
-
-<section id="triad">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">How I add value</div>
-      <h2>The measurement triad</h2>
-      <p class="section-sub">MMM, incrementality experiments, and attribution each answer a question the others can't. My job is making them agree — and I've worked hands-on in all three.</p>
-    </div>
-    <div class="triad-wrap">
-      <div class="triad-fig">
-        <svg viewBox="0 0 600 470" role="img" aria-label="Diagram of the measurement triad: MMM, incrementality experiments, and attribution connected around one measurement story.">
-          <!-- triangle edges -->
-          <line x1="300" y1="92" x2="142" y2="362" stroke="#c9dbda" stroke-width="2"/>
-          <line x1="300" y1="92" x2="458" y2="362" stroke="#c9dbda" stroke-width="2"/>
-          <line x1="142" y1="362" x2="458" y2="362" stroke="#c9dbda" stroke-width="2"/>
-          <!-- spokes to center -->
-          <line x1="300" y1="92" x2="300" y2="272" stroke="#c9dbda" stroke-width="2" stroke-dasharray="5 5"/>
-          <line x1="142" y1="362" x2="300" y2="272" stroke="#c9dbda" stroke-width="2" stroke-dasharray="5 5"/>
-          <line x1="458" y1="362" x2="300" y2="272" stroke="#c9dbda" stroke-width="2" stroke-dasharray="5 5"/>
-          <!-- center -->
-          <circle cx="300" cy="272" r="56" fill="#0f5c5a"/>
-          <text x="300" y="266" text-anchor="middle" fill="#ffffff" font-family="Inter, sans-serif" font-size="15" font-weight="700">One</text>
-          <text x="300" y="286" text-anchor="middle" fill="#ffffff" font-family="Inter, sans-serif" font-size="15" font-weight="700">story</text>
-          <!-- MMM node (top) -->
-          <rect x="210" y="28" width="180" height="66" rx="33" fill="#e3efee" stroke="#0f5c5a" stroke-width="2"/>
-          <text x="300" y="56" text-anchor="middle" fill="#0f5c5a" font-family="Inter, sans-serif" font-size="17" font-weight="800">MMM</text>
-          <text x="300" y="76" text-anchor="middle" fill="#4b5157" font-family="Inter, sans-serif" font-size="12">budget strategy</text>
-          <!-- Experiments node (bottom left) -->
-          <rect x="42" y="330" width="200" height="66" rx="33" fill="#e3efee" stroke="#0f5c5a" stroke-width="2"/>
-          <text x="142" y="358" text-anchor="middle" fill="#0f5c5a" font-family="Inter, sans-serif" font-size="17" font-weight="800">Experiments</text>
-          <text x="142" y="378" text-anchor="middle" fill="#4b5157" font-family="Inter, sans-serif" font-size="12">causal proof</text>
-          <!-- Attribution node (bottom right) -->
-          <rect x="358" y="330" width="200" height="66" rx="33" fill="#e3efee" stroke="#0f5c5a" stroke-width="2"/>
-          <text x="458" y="358" text-anchor="middle" fill="#0f5c5a" font-family="Inter, sans-serif" font-size="17" font-weight="800">Attribution</text>
-          <text x="458" y="378" text-anchor="middle" fill="#4b5157" font-family="Inter, sans-serif" font-size="12">daily signal</text>
-          <!-- corner questions -->
-          <text x="300" y="446" text-anchor="middle" fill="#7c838a" font-family="Inter, sans-serif" font-size="12" font-style="italic">Each answers a question the others can't.</text>
-        </svg>
-      </div>
-      <div class="pillars">
-        <div class="pillar">
-          <h3>MMM</h3>
-          <div class="q">"Where should next year's budget go?"</div>
-          <ul>
-            <li>Co-lead an MMM engagement across 4 international markets</li>
-            <li>Mapped the full digital-twin data landscape (media, CRM, macro) and drove vendor consolidation</li>
-            <li>Advise a global institutional client on traditional vs. digital-twin MMM fit</li>
-            <li>Hands-on with Google Meridian</li>
-          </ul>
+      <div class="tl-panel" id="tl-panel-0" hidden>
+        <div class="tl-head">
+          <div class="mono accent" style="font-size: 12px">2023</div>
+          <div class="display" style="font-weight: 700; font-size: 24px; line-height: 1.15">Built the marketing myself</div>
+          <div class="muted" style="font-size: 14px">Drive Up Driving School, part-time during the degree</div>
         </div>
-        <div class="pillar">
-          <h3>Experiments</h3>
-          <div class="q">"Did that spend actually cause anything?"</div>
-          <ul>
-            <li>iOS deep-linking lift study — surfaced $2.7M–$5.9M in incremental revenue</li>
-            <li>Designed and launched a geo-split incrementality experiment</li>
-            <li>Run measurement for a cruise line's website experiment program</li>
-            <li>Years of structured A/B testing across 50+ paid accounts</li>
-          </ul>
-        </div>
-        <div class="pillar">
-          <h3>Attribution</h3>
-          <div class="q">"Which channels get credit day to day?"</div>
-          <ul>
-            <li>Root-caused a broken attribution setup to browser Referrer-Policy — not GA4</li>
-            <li>Caught 767K bot sessions (20% of US traffic) polluting channel data</li>
-            <li>Exposed TV's brand impact hiding inside Direct traffic</li>
-            <li>GA4 + Adobe implementation, tracking specs, and QA frameworks</li>
-          </ul>
+        <div class="tl-body">
+          <p style="margin: 0; font-size: 16px">Website, Google and Meta ads, GA4 and GTM tracking from search to booking. My own money, so every dollar had to earn its place. Ran A/B tests on ads, offers, and landing pages and used Z-tests to pick winners.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px 28px; align-items: baseline">
+            <div class="display accent" style="font-weight: 800; font-size: 30px; letter-spacing: -0.01em">$6K to $20K+</div>
+            <div class="muted" style="font-size: 14px">monthly revenue</div>
+          </div>
+          <p class="lesson">Learned what a number is for: a decision about where the next dollar goes.</p>
         </div>
       </div>
-    </div>
+      <div class="tl-panel" id="tl-panel-1" hidden>
+        <div class="tl-head">
+          <div class="mono accent" style="font-size: 12px">Spring 2024</div>
+          <div class="display" style="font-weight: 700; font-size: 24px; line-height: 1.15">Research assistant, AI</div>
+          <div class="muted" style="font-size: 14px">New Jersey Institute of Technology</div>
+        </div>
+        <div class="tl-body">
+          <p style="margin: 0; font-size: 16px">Generated synthetic training data with NVIDIA Isaac Sim, converted KITTI to COCO, and reached 88% segmentation accuracy. The semester I found I liked data more than building software.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px 28px; align-items: baseline">
+            <div class="display accent" style="font-weight: 800; font-size: 30px; letter-spacing: -0.01em">88%</div>
+            <div class="muted" style="font-size: 14px">segmentation accuracy on synthetic data</div>
+          </div>
+          <p class="lesson">Learned that the training data decides the model more than the model does.</p>
+        </div>
+      </div>
+      <div class="tl-panel" id="tl-panel-2" hidden>
+        <div class="tl-head">
+          <div class="mono accent" style="font-size: 12px">Fall 2024</div>
+          <div class="display" style="font-weight: 700; font-size: 24px; line-height: 1.15">Data analyst, project engagement</div>
+          <div class="muted" style="font-size: 14px">Merck Pharmaceuticals, remote</div>
+        </div>
+        <div class="tl-body">
+          <p style="margin: 0; font-size: 16px">Engineered an Azure notification engine with Power Automate, SharePoint, and Dataverse that processes thousands of daily emails, and presented it to the COO with Power BI dashboards.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px 28px; align-items: baseline">
+            <div class="display accent" style="font-weight: 800; font-size: 30px; letter-spacing: -0.01em">4,300 hours</div>
+            <div class="muted" style="font-size: 14px">saved a year, about $200K in labor</div>
+          </div>
+          <p class="lesson">Learned to present to the top of a company: one page, one number, the rest on request.</p>
+        </div>
+      </div>
+      <div class="tl-panel" id="tl-panel-3" hidden>
+        <div class="tl-head">
+          <div class="mono accent" style="font-size: 12px">Dec 2024</div>
+          <div class="display" style="font-weight: 700; font-size: 24px; line-height: 1.15">B.S. Computer Science</div>
+          <div class="muted" style="font-size: 14px">NJIT, Dean&#x27;s List four semesters</div>
+        </div>
+        <div class="tl-body">
+          <p style="margin: 0; font-size: 16px">Data mining, data structures and algorithms, artificial intelligence, machine learning. Data jobs were hard to break into without experience, so I went into marketing and kept tying every piece of it back to data.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px 28px; align-items: baseline">
+            <div class="display accent" style="font-weight: 800; font-size: 30px; letter-spacing: -0.01em">4</div>
+            <div class="muted" style="font-size: 14px">semesters on the Dean&#x27;s List</div>
+          </div>
+          <p class="lesson">Learned to take the door that was open and bring the data with me.</p>
+        </div>
+      </div>
+      <div class="tl-panel" id="tl-panel-4" hidden>
+        <div class="tl-head">
+          <div class="mono accent" style="font-size: 12px">Aug 2025</div>
+          <div class="display" style="font-weight: 700; font-size: 24px; line-height: 1.15">PPC analyst, 50+ accounts</div>
+          <div class="muted" style="font-size: 14px">Conduit Digital, Toms River, NJ</div>
+        </div>
+        <div class="tl-body">
+          <p style="margin: 0; font-size: 16px">Managed 50+ Google Ads and Microsoft Ads accounts on a $300K+ a month portfolio across B2B, local services, e-commerce, and lead gen. Scaled one B2B program 3x in 90 days at about 300% ROAS.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px 28px; align-items: baseline">
+            <div class="display accent" style="font-weight: 800; font-size: 30px; letter-spacing: -0.01em">$300K+</div>
+            <div class="muted" style="font-size: 14px">a month in managed spend</div>
+          </div>
+          <p class="lesson">Learned how marketing money actually gets spent, and how little of it gets measured well.</p>
+        </div>
+      </div>
+      <div class="tl-panel" id="tl-panel-5">
+        <div class="tl-head">
+          <div class="mono accent" style="font-size: 12px">Feb 2026</div>
+          <div class="display" style="font-weight: 700; font-size: 24px; line-height: 1.15">Analytics consultant</div>
+          <div class="muted" style="font-size: 14px">fifty-five (Brandtech Group), New York</div>
+        </div>
+        <div class="tl-body">
+          <p style="margin: 0; font-size: 16px">Started with one client doing basic pulls. Within months, the team&#x27;s SQL, BigQuery, and dashboard owner across seven global luxury and retail accounts: measurement, root-cause investigations, dashboards leadership relies on, and automation.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px 28px; align-items: baseline">
+            <div class="display accent" style="font-weight: 800; font-size: 30px; letter-spacing: -0.01em">7</div>
+            <div class="muted" style="font-size: 14px">client accounts, millions of events across years of data</div>
+          </div>
+          <p class="lesson">The two sides met: I know what the marketer needs and I can pull it myself.</p>
+        </div>
+      </div>
   </div>
 </section>
-
-<section>
-  <div class="wrap">
-    <div class="band">
-      <div class="band-grid">
-        <div><div class="num">767K</div><div class="lbl">Bot sessions caught in one channel audit</div></div>
-        <div><div class="num">&gt;99%</div><div class="lbl">Confidence proving a weather-driven sales drop</div></div>
-        <div><div class="num">4 countries</div><div class="lbl">Aligned on one real-time executive dashboard</div></div>
-        <div><div class="num">~3 hrs/mo</div><div class="lbl">Saved by automating executive reporting in Python</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="timeline" style="padding-top: 0;">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Timeline</div>
-      <h2>How I got here</h2>
-    </div>
-    <div class="xp">
-      <div class="xp-item">
-        <span class="when">Feb 2026 — Present</span>
-        <h3>Analytics Consultant</h3>
-        <div class="org">fifty-five (The Brandtech Group) · New York, NY</div>
-        <p>Marketing measurement for global luxury and retail brands: <span class="hl">MMM across four markets, incrementality studies, and real-time executive dashboards</span> on BigQuery — bridging business questions and engineering answers.</p>
-      </div>
-      <div class="xp-item">
-        <span class="when">Aug 2025 — Feb 2026</span>
-        <h3>PPC Analyst</h3>
-        <div class="org">Conduit Digital · Toms River, NJ</div>
-        <p>Managed 50+ ad accounts on a ~$300K/month portfolio. <span class="hl">Scaled a B2B program 3× in 90 days at ~300% ROAS</span>; lifted a flat-budget account from ~200 to 300+ conversions a month.</p>
-      </div>
-      <div class="xp-item">
-        <span class="when">Jan 2023 — Aug 2025</span>
-        <h3>Marketing Analyst</h3>
-        <div class="org">Drive Up Driving School · Iselin, NJ (family business)</div>
-        <p>Built the paid acquisition engine from scratch, with GA4 + GTM attribution through to bookings. <span class="hl">Grew monthly revenue from ≈$6K to $20K+.</span></p>
-      </div>
-      <div class="xp-item">
-        <span class="when">Dec 2024</span>
-        <h3>B.S. Computer Science</h3>
-        <div class="org">New Jersey Institute of Technology · Newark, NJ</div>
-        <p>Dean's List, 4 semesters. Data mining, machine learning, and AI coursework.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="rule">
 
 <section id="work">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Selected work</div>
-      <h2>Client case studies</h2>
-      <p class="section-sub">Client work is described by industry to respect confidentiality. Happy to go deeper in conversation.</p>
+  <div class="reveal" style="display: flex; flex-direction: column; gap: 24px">
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <div class="eyebrow">Work</div>
+      <h2 class="h2">What do you want to see?</h2>
+      <p style="margin: 0; max-width: 640px" class="muted">Every card shows the chart I delivered, then the full case: the question, the method, the result, what it does not mean, and how it was checked.</p>
+      <p class="privacy"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4FD1C9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto; margin-top: 2px"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Client privacy: clients are named by industry only. Brands, product and site names, and raw figures are removed or blurred in every chart and screenshot. The results shown are the ones I share in interviews.</span></p>
     </div>
-    <div class="work-grid">
-      <div class="work-card">
-        <div class="cat">Incrementality</div>
-        <h3>The $2.7M–$5.9M deep-linking study</h3>
-        <p>Measured the true lift of iOS deep-linking in paid search for a national retailer — a quasi-experimental analysis in GA4 and BigQuery separating real incremental revenue from organic cannibalization.</p>
-        <div class="result">Directly reshaped the client's channel budget</div>
-      </div>
-      <div class="work-card">
-        <div class="cat">Statistical Analysis</div>
-        <h3>Proving a weather-driven sales drop</h3>
-        <p>A holiday weekend's sales dropped, and weather was the suspected cause. I grouped 51-state data into wet and dry cohorts and re-tested at finer cuts: wet states fell ~12% while dry states rose ~26%, significant at &gt;99% confidence.</p>
-        <div class="result">Presented to the marketing executive team</div>
-      </div>
-      <div class="work-card">
-        <div class="cat">Data Quality</div>
-        <h3>Filtering 767K bot sessions</h3>
-        <p>Identified bot traffic in a luxury brand's Direct channel using GA4 engagement and geo signatures — 20% of US traffic — then built the exclusion filter that restored the true channel mix.</p>
-        <div class="result">True conversion rate restored: 0.7% → 0.9%</div>
-      </div>
-      <div class="work-card">
-        <div class="cat">Attribution Forensics</div>
-        <h3>When attribution quietly breaks</h3>
-        <p>A B2B marketplace's referral pages were collapsing into the homepage. Root cause wasn't GA4 settings — it was browser Referrer-Policy. Confirmed with client-ID matching, session sequencing, and control tests.</p>
-        <div class="result">Trustworthy channel reporting restored</div>
-      </div>
-      <div class="work-card">
-        <div class="cat">Brand Measurement</div>
-        <h3>Finding TV's impact inside Direct traffic</h3>
-        <p>TV spend rose 21% while TV-tagged visits fell to near zero — and Direct traffic grew 52% to 1.36M. I showed a cruise line where its brand advertising was actually landing.</p>
-        <div class="result">Reshaped how stakeholders credit brand vs. performance</div>
-      </div>
-      <div class="work-card">
-        <div class="cat">Dashboards</div>
-        <h3>One source of truth, four countries</h3>
-        <p>Designed and built a real-time Power BI executive dashboard on BigQuery GA4 intraday exports plus back-end sales data for a global luxury retailer — schema to QA to user training, end to end.</p>
-        <div class="result">The number four countries align on</div>
-      </div>
+    <div class="tabs" role="tablist" aria-label="Kinds of work">
+        <button class="tab" type="button" role="tab" data-tab="analysis" aria-selected="true">Analysis</button>
+        <button class="tab" type="button" role="tab" data-tab="dashboards" aria-selected="false">Dashboards</button>
+        <button class="tab" type="button" role="tab" data-tab="agents" aria-selected="false">Agentic AI</button>
+        <button class="tab" type="button" role="tab" data-tab="tracking" aria-selected="false">Tracking and QA</button>
+    </div>
+    <div class="cards">
+        <article class="card lift" data-tab="analysis" id="case-relabel">
+          <div class="card-top">
+            <div class="card-text">
+              <div class="card-meta"><span>Root cause</span><span>A national retailer</span></div>
+              <div class="card-number display">51.5% drop, relabeled</div>
+              <h3 class="card-title">Organic search revenue was not lost. It was filed under Direct.</h3>
+              <p class="card-why">A site change made organic revenue fall 51.5% in two weeks. The money had moved, not disappeared.</p>
+              <button class="case-toggle" type="button" aria-expanded="false" aria-controls="case-relabel-detail">Read the full case</button>
+            </div>
+            <div class="card-visual">
+              <figure class="chart drawn">
+<svg viewBox="0 0 520 146" style="width: 100%; height: auto; display: block" role="img" aria-label="Two weeks after the site change: organic search revenue down 51.5%, Direct sessions up 91%, total web revenue down 1.3% against 3.1% last year">
+              <line x1="250" y1="4" x2="250" y2="140" stroke="rgba(242,239,232,0.3)" stroke-width="1"/>
+              <g font-family="IBM Plex Mono, monospace" font-size="13" fill="#D0CCC3">
+                <text x="0" y="16">Organic search revenue</text>
+                <text x="0" y="64">Direct sessions</text>
+                <text x="0" y="112">Total web revenue</text>
+              </g>
+              <rect x="147" y="24" width="103" height="16" rx="3" fill="#C9D1D9"/>
+              <rect x="250" y="72" width="182" height="16" rx="3" fill="#F2B65A"/>
+              <rect x="247" y="120" width="3" height="16" rx="1" fill="#C9D1D9"/>
+              <g font-family="IBM Plex Mono, monospace" font-size="13" fill="#F2EFE8" font-weight="600">
+                <text x="140" y="37" text-anchor="end">-51.5%</text>
+                <text x="440" y="85">+91%</text>
+                <text x="258" y="133">-1.3% (last year: -3.1%)</text>
+              </g>
+            </svg>
+            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #D0CCC3">Two weeks after the site change vs the two weeks before. Drawn from the published results.</div>
+              </figure>
+            </div>
+          </div>
+          <div class="case-detail" id="case-relabel-detail" hidden>
+            <div><span class="k">Question. </span>Did we lose $0.8M of organic search revenue after a site change, or did it move?</div>
+            <div><span class="k">Method. </span>14-day windows before and after the change, the same dates last year as a control, app traffic as a second control, and every segment cut by device, operating system, and browser. 24M sessions in BigQuery.</div>
+            <div><span class="k">Result. </span>Every organic segment fell about the same, Direct nearly doubled, and total web revenue was down 1.3% against last year&#x27;s 3.1%. The referrer from Google was being lost in the browser before GA4 ran, so visits arrived with no source.</div>
+            <div><span class="k">What it does not mean. </span>Nothing was recovered or saved. The revenue was never lost. The win is the correct read, which stopped a wrong decision.</div>
+            <div class="checked"><span class="k2">How I checked it. </span>A second pull matched the first within 0.2% on every row. Organic matched the GA4 interface to the cent. The client&#x27;s manager forwarded it to three teams.</div>
+            <div class="mono muted" style="font-size: 12px">BigQuery · GA4 · Excel workbook (Story, Method, Data tabs)</div>
+          </div>
+        </article>
+        <article class="card lift" data-tab="analysis" id="case-deeplink">
+          <div class="card-top">
+            <div class="card-text">
+              <div class="card-meta"><span>Incrementality</span><span>A national retailer</span></div>
+              <div class="card-number display">$2.7M to $5.9M</div>
+              <h3 class="card-title">What iOS deep linking in paid search is really worth.</h3>
+              <p class="card-why">The estimated annual incremental revenue, as a range, and the reason it is a range. It reshaped the channel budget.</p>
+              <button class="case-toggle" type="button" aria-expanded="false" aria-controls="case-deeplink-detail">Read the full case</button>
+            </div>
+            <div class="card-visual">
+              <figure class="chart">
+                <div class="chart-frame"><img src="images/deep-linking-search-share.png" alt="Paid search share of revenue, web 55% to 65% and app 2% to 25%" loading="lazy"></div>
+                <figcaption>Paid search share of web and app revenue, before and after iOS deep linking.</figcaption>
+              </figure>
+              <figure class="chart">
+                <div class="chart-frame"><img src="images/deep-linking-ios-revenue.png" alt="Cumulative iOS revenue over 115 days, 2025 versus 2024, 34.5% higher over the period" loading="lazy"></div>
+                <figcaption>Cumulative iOS revenue, same 115 days, this year vs last. Dollar axis removed.</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="case-detail" id="case-deeplink-detail" hidden>
+            <div><span class="k">Question. </span>Does deep linking add revenue, or does it take credit for sales that organic would have made anyway?</div>
+            <div><span class="k">Method. </span>A quasi-experimental comparison in GA4 and BigQuery that separates real lift from organic cannibalization, with the assumptions written down next to the numbers.</div>
+            <div><span class="k">Result. </span>An estimated $2.7M to $5.9M a year in incremental revenue. Presented to senior stakeholders, who changed the channel budget.</div>
+            <div><span class="k">What it does not mean. </span>It is an estimate and a range on purpose. A single figure would have hidden how much depends on the cannibalization assumption.</div>
+            <div class="checked"><span class="k2">How I checked it. </span>The math is rebuildable from the raw tables, and I can walk through every step on a call.</div>
+            <div class="mono muted" style="font-size: 12px">BigQuery · GA4 · quasi-experimental design</div>
+          </div>
+        </article>
+        <article class="card lift" data-tab="analysis" id="case-weather">
+          <div class="card-top">
+            <div class="card-text">
+              <div class="card-meta"><span>Hypothesis test</span><span>A national retailer</span></div>
+              <div class="card-number display">dry +17%, wet −8%</div>
+              <h3 class="card-title">Why Memorial Day weekend sales fell: the weather.</h3>
+              <p class="card-why">Fifty-one states split into dry, flat, and wet by the change in rainfall. The drier the state, the better the weekend.</p>
+              <button class="case-toggle" type="button" aria-expanded="false" aria-controls="case-weather-detail">Read the full case</button>
+            </div>
+            <div class="card-visual">
+              <figure class="chart">
+                <div class="chart-frame"><img src="images/weather-rainfall.png" alt="Sales 2025 versus 2026 by rainfall change: dry states up 17.2%, flat states up 0.9%, wet states down 8.2%" loading="lazy"></div>
+                <figcaption>Sales by rainfall change vs last year, 51 states. Dollar axis removed.</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="case-detail" id="case-weather-detail" hidden>
+            <div><span class="k">Question. </span>Was the holiday weekend drop a marketing problem or a weather problem?</div>
+            <div><span class="k">Method. </span>Grouped state-level sales by rainfall change versus last year: dry (less rain, 8 states), flat (within 0.05 inch, 11 states), wet (more rain, 32 states). Tested the groups against each other, then re-tested at finer cuts to make sure the order held.</div>
+            <div><span class="k">Result. </span>Dry states rose 17.2%, flat states held at +0.9%, wet states fell 8.2%. Presented visually to the client&#x27;s CMO.</div>
+            <div><span class="k">What it does not mean. </span>Weather explains the split between states. It does not explain every dollar of the total, and the analysis says so.</div>
+            <div class="checked"><span class="k2">How I checked it. </span>Re-tested at finer rainfall cuts before presenting. Same order, same direction.</div>
+            <div class="mono muted" style="font-size: 12px">BigQuery · Python · group comparison</div>
+          </div>
+        </article>
+        <article class="card lift" data-tab="analysis" id="case-fulfil">
+          <div class="card-top">
+            <div class="card-text">
+              <div class="card-meta"><span>Matched control</span><span>A national retailer</span></div>
+              <div class="card-number display">$3.15M</div>
+              <h3 class="card-title">More quarterly revenue in centralized-fulfillment stores than in matched stores.</h3>
+              <p class="card-why">455 stores against standalone stores matched on state and size. Nearly equal traffic, 18.4% higher conversion.</p>
+              <button class="case-toggle" type="button" aria-expanded="false" aria-controls="case-fulfil-detail">Read the full case</button>
+            </div>
+            <div class="card-visual">
+              <figure class="chart">
+                <div class="chart-frame"><img src="images/fulfillment-funnel.png" alt="Step-over-step conversion, centralized versus standalone: PDP to cart 6.8% versus 5.8%, the other steps flat" loading="lazy"></div>
+                <figcaption>Step-by-step conversion, matched store groups, one quarter.</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="case-detail" id="case-fulfil-detail" hidden>
+            <div><span class="k">Question. </span>Do stores on centralized fulfillment convert better than comparable standalone stores?</div>
+            <div><span class="k">Method. </span>Matched 455 stores to standalone stores on state and store size across the top 20 states, 20.8M sessions in BigQuery, matched on users rather than sessions because sessions are partly a result of the treatment. Mann-Whitney per store in Python.</div>
+            <div><span class="k">Result. </span>Session conversion 1.21% vs 1.03%, revenue per session $1.95 vs $1.64, average order value equal. A $3.15M gap in one quarter.</div>
+            <div><span class="k">What it does not mean. </span>A gap between matched groups, not proof of cause, and never an annual number. Part could be store traits the match did not capture.</div>
+            <div class="checked"><span class="k2">How I checked it. </span>Caught a store-ID bug first: zero-padded IDs had put 19 treated stores in the control group. Fixed the key and added a check that must return zero rows.</div>
+            <div class="mono muted" style="font-size: 12px">BigQuery · Python (Colab) · ContentSquare export</div>
+          </div>
+        </article>
+        <article class="card lift" data-tab="dashboards" id="case-apac" hidden>
+          <div class="card-top">
+            <div class="card-text">
+              <div class="card-meta"><span>Flagship build</span><span>A global luxury retailer · APAC</span></div>
+              <div class="card-number display">4 countries, 1 source of truth</div>
+              <h3 class="card-title">The real-time APAC dashboard regional leadership runs on.</h3>
+              <p class="card-why">An end-to-end GA4-to-Power BI pipeline on the intraday export: eight fact tables and 100+ DAX measures behind five pages, built e-commerce-ready before the sites transacted.</p>
+              <button class="case-toggle" type="button" aria-expanded="false" aria-controls="case-apac-detail">Read the full case</button>
+            </div>
+            <div class="card-visual">
+              <figure class="chart">
+                <div class="chart-frame"><img src="images/apac-dashboard-kpis.png" alt="APAC dashboard, page one: site health KPIs for four markets, values blurred" loading="lazy"></div>
+                <figcaption>APAC dashboard, page one: site health KPIs by market. Brand removed, values blurred.</figcaption>
+              </figure>
+              <figure class="chart">
+                <div class="chart-frame"><img src="images/apac-dashboard-traffic.png" alt="APAC dashboard, traffic and discovery page: channel table, sessions by market, homepage view, values blurred" loading="lazy"></div>
+                <figcaption>APAC dashboard, traffic page: channels, landing pages, sessions by market. Product names and values blurred.</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="case-detail" id="case-apac-detail" hidden>
+            <div><span class="k">Question. </span>Can every APAC market report the same numbers from the same place, before and after e-commerce goes live?</div>
+            <div><span class="k">Method. </span>Session-level spine and star schema in BigQuery, eight fact tables plus six dimensions, two scheduled queries, 100+ DAX measures with a full year-over-year layer, and a self-serve trends page where the user picks the KPI and the breakdown.</div>
+            <div><span class="k">Result. </span>Four countries report from one place. Page one is the top KPIs per site for regional leadership. Pages two to four are channel, product, sessions, users. Purchase and funnel reporting turned on at launch with no rebuild.</div>
+            <div><span class="k">What it does not mean. </span>One source of truth is a habit, not a file. It holds only while every market reads the dashboard instead of running its own pulls, which is why the training program exists.</div>
+            <div class="checked"><span class="k2">How I checked it. </span>A 12-check SQL QC suite that must pass before any load ships: grain integrity, fact-to-spine reconciliation, year-over-year balance, channel coverage. One catch on the way: engaged sessions undercounted one market&#x27;s users by 75% to 87%, so the user-ID path was validated at zero mismatches over seven days.</div>
+            <div class="mono muted" style="font-size: 12px">BigQuery · Power BI (DAX, semantic model) · scheduled queries</div>
+          </div>
+        </article>
+        <article class="card lift" data-tab="dashboards" id="case-automation" hidden>
+          <div class="card-top">
+            <div class="card-text">
+              <div class="card-meta"><span>Automation</span><span>fifty-five team</span></div>
+              <div class="card-number display">16 hours to 1</div>
+              <h3 class="card-title">A dashboard build in about an hour instead of two days.</h3>
+              <p class="card-why">The build is automated with Claude. The team has used the method on at least five Power BI and Looker Studio dashboards.</p>
+              <button class="case-toggle" type="button" aria-expanded="false" aria-controls="case-automation-detail">Read the full case</button>
+            </div>
+
+          </div>
+          <div class="case-detail" id="case-automation-detail" hidden>
+            <div><span class="k">Question. </span>Why does every new dashboard cost two working days when most of the structure repeats?</div>
+            <div><span class="k">Method. </span>Wrote the build logic once: data model, measures, layout, QC. Claude drafts the pieces from the spec; I run the queries, check the numbers against the source, and fix what is wrong.</div>
+            <div><span class="k">Result. </span>About 16 hours down to about 1 per build. Shown to a colleague in a working session and adopted by the team.</div>
+            <div><span class="k">What it does not mean. </span>The hour is build time, not requirements time. Knowing what the stakeholder needs still takes a conversation.</div>
+            <div class="checked"><span class="k2">How I checked it. </span>Every automated build goes through the same QC suite as a manual one before anyone sees it.</div>
+            <div class="mono muted" style="font-size: 12px">Claude · Power BI · Looker Studio · BigQuery</div>
+          </div>
+        </article>
+        <article class="card lift" data-tab="dashboards" id="case-avail" hidden>
+          <div class="card-top">
+            <div class="card-text">
+              <div class="card-meta"><span>Data quality</span><span>A national retailer</span></div>
+              <div class="card-number display">4% shown, 1% real</div>
+              <h3 class="card-title">A dashboard overstating unavailable products four times over.</h3>
+              <p class="card-why">Ten tables behind a six-page dashboard. Three frozen, seven missing 21 days, and a mobile bug marking every app view unavailable.</p>
+              <button class="case-toggle" type="button" aria-expanded="false" aria-controls="case-avail-detail">Read the full case</button>
+            </div>
+
+          </div>
+          <div class="case-detail" id="case-avail-detail" hidden>
+            <div><span class="k">Question. </span>Why does the availability dashboard say 4% of product views are unavailable for pickup when the stores say otherwise?</div>
+            <div><span class="k">Method. </span>Audited all ten source tables: job schedules, lookback windows, data types. Apps sent the availability flag as a number, web sent it as text, so every mobile view had been marked unavailable since March.</div>
+            <div><span class="k">Result. </span>Filled 21 missing days, changed four scheduled queries to a three-day lookback with a duplicate guard, and sized the backfill at about 300 GB instead of the first estimate of 2 TB.</div>
+            <div><span class="k">What it does not mean. </span>The year-to-date rebuild is running; the final corrected rate is not on record yet.</div>
+            <div class="checked"><span class="k2">How I checked it. </span>Each fixed table reconciled against the raw GA4 export for a test window before the scheduled queries were changed.</div>
+            <div class="mono muted" style="font-size: 12px">BigQuery · Looker Studio · scheduled queries</div>
+          </div>
+        </article>
+        <article class="card lift" data-tab="agents" id="case-qcagent" hidden>
+          <div class="card-top">
+            <div class="card-text">
+              <div class="card-meta"><span>AI agent</span><span>Four clients</span></div>
+              <div class="card-number display">1 real catch in 3 releases</div>
+              <h3 class="card-title">A QC agent that checks tracking before every website go-live.</h3>
+              <p class="card-why">Claude connected to BigQuery runs a fixed set of validation queries and sends an alert when a release breaks tracking or drops traffic.</p>
+              <button class="case-toggle" type="button" aria-expanded="false" aria-controls="case-qcagent-detail">Read the full case</button>
+            </div>
+
+          </div>
+          <div class="case-detail" id="case-qcagent-detail" hidden>
+            <div><span class="k">Question. </span>How do we know a website release did not break tracking before the client notices?</div>
+            <div><span class="k">Method. </span>The math is written into a fixed set of validation queries. Before each go-live the user enters a few details about the release; the agent checks where the new feature lives and how it fires, whether anything else broke, and any big drop in events or sessions, then notifies.</div>
+            <div><span class="k">Result. </span>In use at work. Across its first three releases for four clients it caught one real discrepancy, caused by bot traffic.</div>
+            <div><span class="k">What it does not mean. </span>It checks what it was told to check. A human still reads the release notes and the exceptions.</div>
+            <div class="checked"><span class="k2">How I checked it. </span>The query set is fixed and reviewed; the agent cannot invent a check. Every alert is confirmed by hand before it goes to a client.</div>
+            <div class="mono muted" style="font-size: 12px">Claude · BigQuery · GA4</div>
+          </div>
+        </article>
+        <article class="card lift" data-tab="agents" id="case-howai" hidden>
+          <div class="card-top">
+            <div class="card-text">
+              <div class="card-meta"><span>Method</span><span>All work</span></div>
+              <div class="card-number display">Wrote and validated</div>
+              <h3 class="card-title">How I use AI without losing the judgment.</h3>
+              <p class="card-why">I set the logic, run every query, check the result against the source, and own the outcome. The agent drafts. I validate.</p>
+              <button class="case-toggle" type="button" aria-expanded="false" aria-controls="case-howai-detail">Read the full case</button>
+            </div>
+
+          </div>
+          <div class="case-detail" id="case-howai-detail" hidden>
+            <div><span class="k">Question. </span>Where does the human stay in a workflow that AI can draft end to end?</div>
+            <div><span class="k">Method. </span>Three places: the spec (what to check and why), the run (every query executed by me against real tables), and the reconciliation (numbers matched to the GA4 interface or raw events before anyone sees them).</div>
+            <div><span class="k">Result. </span>Faster builds and fewer broken numbers, with every line explainable in an interview.</div>
+            <div><span class="k">What it does not mean. </span>&quot;Generated&quot; is not a word that appears on my resume. &quot;Built&quot; and &quot;validated&quot; are.</div>
+            <div class="checked"><span class="k2">How I checked it. </span>Ask me to explain any query on this page line by line.</div>
+            <div class="mono muted" style="font-size: 12px">Claude · BigQuery · SQL</div>
+          </div>
+        </article>
+        <article class="card lift" data-tab="tracking" id="case-bots" hidden>
+          <div class="card-top">
+            <div class="card-text">
+              <div class="card-meta"><span>Data quality</span><span>A luxury client</span></div>
+              <div class="card-number display">767K bot sessions</div>
+              <h3 class="card-title">Twenty percent of US traffic was a datacenter in Virginia.</h3>
+              <p class="card-why">Hiding in the Direct channel. Found through GA4 engagement and geo signatures. The exclusion segment restored the true conversion rate.</p>
+              <button class="case-toggle" type="button" aria-expanded="false" aria-controls="case-bots-detail">Read the full case</button>
+            </div>
+            <div class="card-visual">
+              <figure class="chart">
+                <div class="chart-frame"><img src="images/bot-traffic-share.png" alt="One datacenter city: 19.5% of sessions, 1.4% of revenue" loading="lazy"></div>
+                <figcaption>Share of US sessions vs share of revenue from one datacenter city. City name removed.</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="case-detail" id="case-bots-detail" hidden>
+            <div><span class="k">Question. </span>Why did Direct become the number one channel overnight, and is the conversion rate real?</div>
+            <div><span class="k">Method. </span>Profiled sessions by engagement time, source, landing page, and city. 767K of 3.94M US sessions came from one datacenter city with about zero seconds of engagement, no source, and 97% landing on the store locator.</div>
+            <div><span class="k">Result. </span>With the exclusion, conversion rate went from 0.7% to 0.9%, average engagement from 27 to 34 seconds, and Paid Social became the true top channel. Two GA4 segments shipped to the client.</div>
+            <div><span class="k">What it does not mean. </span>Revenue barely changed (down 1.4%). The bots inflated volume, not sales. The fix is permanent only at the CDN level, which was recommended.</div>
+            <div class="checked"><span class="k2">How I checked it. </span>Showed the remaining surge was legitimate: other sources scaled in proportion, state mix stayed stable, organic doubled with healthy engagement.</div>
+            <div class="mono muted" style="font-size: 12px">GA4 · BigQuery · segment design</div>
+          </div>
+        </article>
+        <article class="card lift" data-tab="tracking" id="case-monitor" hidden>
+          <div class="card-top">
+            <div class="card-text">
+              <div class="card-meta"><span>Monitoring</span><span>A global beauty group</span></div>
+              <div class="card-number display">9 sites, every hour</div>
+              <h3 class="card-title">An hourly tracking monitor that compares each site to itself.</h3>
+              <p class="card-why">Baselines from yesterday, the same weekday last week, and a three-day average, all cut to the same complete hours so a partial day never looks like a drop.</p>
+              <button class="case-toggle" type="button" aria-expanded="false" aria-controls="case-monitor-detail">Read the full case</button>
+            </div>
+            <div class="card-visual">
+              <figure class="chart">
+                <div class="chart-frame"><img src="images/tracking-monitor-all-sites.png" alt="Hourly tracking monitor across nine sites: KPIs, hourly curves against the three-day average, and each site against its baseline, values and site names blurred" loading="lazy"></div>
+                <figcaption>Hourly tracking monitor, all nine sites. Site names and values blurred.</figcaption>
+              </figure>
+              <figure class="chart">
+                <div class="chart-frame"><img src="images/tracking-monitor-site-diagnosis.png" alt="Site diagnosis view for one site: KPIs and hourly curves against the three-day average, values blurred" loading="lazy"></div>
+                <figcaption>Drill-down for one site: today vs the 3-day average, same hours. Values blurred.</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="case-detail" id="case-monitor-detail" hidden>
+            <div><span class="k">Question. </span>How do nine e-commerce sites get watched for tracking breaks without a person refreshing dashboards?</div>
+            <div><span class="k">Method. </span>One raw scan per hour feeds two hourly tables and views in BigQuery, 28 days kept, surfaced in Looker Studio. A problem is a drop of 20% or more against the three-day average when last week agrees.</div>
+            <div><span class="k">Result. </span>Running hourly. It has helped catch bot-traffic inflation once or twice. A deployment runbook makes it reusable for other clients.</div>
+            <div><span class="k">What it does not mean. </span>Hourly, not real time. Low-volume sites needed tuned rules to stop false alarms on add-to-cart.</div>
+            <div class="checked"><span class="k2">How I checked it. </span>A guard stops a thin refresh from overwriting good data.</div>
+            <div class="mono muted" style="font-size: 12px">BigQuery · Looker Studio · scheduled queries</div>
+          </div>
+        </article>
+        <article class="card lift" data-tab="tracking" id="case-frozen" hidden>
+          <div class="card-top">
+            <div class="card-text">
+              <div class="card-meta"><span>Root cause</span><span>A national retailer</span></div>
+              <div class="card-number display">4 months frozen</div>
+              <h3 class="card-title">A table every job said was fine, and was not.</h3>
+              <p class="card-why">Five pipeline layers traced to one missing extraction script. Every scheduled job had reported success on empty input.</p>
+              <button class="case-toggle" type="button" aria-expanded="false" aria-controls="case-frozen-detail">Read the full case</button>
+            </div>
+
+          </div>
+          <div class="case-detail" id="case-frozen-detail" hidden>
+            <div><span class="k">Question. </span>Why did a store-level table a pricing model depends on stop in February while every job showed green?</div>
+            <div><span class="k">Method. </span>Walked the pipeline layer by layer through job history and metadata until the input was empty: the Google Ads API extraction script had vanished from the storage bucket after a redeployment.</div>
+            <div><span class="k">Result. </span>Script restored, data backfilled through July, confirmed by the client&#x27;s engineer.</div>
+            <div><span class="k">What it does not mean. </span>A green job means the job ran, not that data arrived. That is now a check, not an assumption.</div>
+            <div class="checked"><span class="k2">How I checked it. </span>Row counts per layer per day, compared before and after the restore.</div>
+            <div class="mono muted" style="font-size: 12px">BigQuery · Google Ads API · job metadata</div>
+          </div>
+        </article>
     </div>
   </div>
 </section>
 
-<hr class="rule">
-
-<section id="projects">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Projects</div>
-      <h2>Built on my own time</h2>
-      <p class="section-sub">Machine learning, data engineering, and dashboarding projects — with links.</p>
+<section id="how" style="max-width: 1120px; margin: 0 auto; padding: 56px 24px; border-top: 1px solid rgba(242,239,232,0.16); display: flex; flex-direction: column; gap: 24px">
+    <div class="reveal" style="display: flex; flex-direction: column; gap: 24px">
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #4FD1C9">How I work</div>
+      <h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: -0.01em">Control first, then the number.</h2>
     </div>
-    <div class="work-grid">
-      <div class="work-card">
-        <div class="cat">NLP · AWS · Docker</div>
-        <h3>Twitter &amp; Reddit sentiment system</h3>
-        <p>BERT trained on 1.6M tweets, 91% accuracy, on a production AWS ETL pipeline (Lambda, S3, ECR) with automated weekly retraining and a Streamlit dashboard.</p>
-        <div class="result"><a href="https://github.com/mahmoud25112/Customer_Sentiment_analysis_BERT" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.datascienceportfol.io/mahmoud2511saad/projects/1" target="_blank" rel="noopener">Case study</a></div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px">
+      <div class="lift" style="padding: 22px; border: 1px solid rgba(242,239,232,0.2); border-radius: 12px; background: #1A1F24; display: flex; flex-direction: column; gap: 8px">
+        <div style="font-weight: 600; font-size: 17px">Start from the business question</div>
+        <p style="margin: 0; color: #B8B3A9; font-size: 15px">"Did we lose revenue, or did it move?" The data comes second.</p>
       </div>
-      <div class="work-card">
-        <div class="cat">XGBoost · Time Series · SHAP</div>
-        <h3>High-frequency trading model</h3>
-        <p>Time-series model for Tesla/Ford — feature engineering from 7 to 24 signals, SHAP explainability, Streamlit backtesting app. Won Best ML Project at HackNJIT.</p>
-        <div class="result"><a href="https://github.com/jgranizo/HackNJIT2024" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.datascienceportfol.io/mahmoud2511saad/projects/3" target="_blank" rel="noopener">Case study</a></div>
+      <div class="lift" style="padding: 22px; border: 1px solid rgba(242,239,232,0.2); border-radius: 12px; background: #1A1F24; display: flex; flex-direction: column; gap: 8px">
+        <div style="font-weight: 600; font-size: 17px">Find a control before trusting a number</div>
+        <p style="margin: 0; color: #B8B3A9; font-size: 15px">The same dates last year, another channel, app traffic, a same-host test. Then cut by segment to rule things out.</p>
       </div>
-      <div class="work-card">
-        <div class="cat">Scikit-learn · TabNet</div>
-        <h3>Hospital readmission prediction</h3>
-        <p>Predictive model on 100K records from 130 hospitals — exploratory analysis, statistical feature selection, ensemble models reaching 0.75 AUC.</p>
-        <div class="result"><a href="https://www.datascienceportfol.io/mahmoud2511saad/projects/0" target="_blank" rel="noopener">Case study</a></div>
+      <div class="lift" style="padding: 22px; border: 1px solid rgba(242,239,232,0.2); border-radius: 12px; background: #1A1F24; display: flex; flex-direction: column; gap: 8px">
+        <div style="font-weight: 600; font-size: 17px">Reconcile to the source</div>
+        <p style="margin: 0; color: #B8B3A9; font-size: 15px">Every figure is checked against the GA4 interface or the raw event tables before it goes out. To the cent when possible.</p>
       </div>
-      <div class="work-card">
-        <div class="cat">TypeScript · React · CI/CD</div>
-        <h3>Battleship on Covey.Town</h3>
-        <p>Full-featured multiplayer Battleship — TypeScript backend for ship placement and turn logic, React/PhaserJS frontend, Twilio video, Jest + GitHub Actions.</p>
-        <div class="result"><a href="https://www.datascienceportfol.io/mahmoud2511saad/projects/6" target="_blank" rel="noopener">Case study</a></div>
+      <div class="lift" style="padding: 22px; border: 1px solid rgba(242,239,232,0.2); border-radius: 12px; background: #1A1F24; display: flex; flex-direction: column; gap: 8px">
+        <div style="font-weight: 600; font-size: 17px">Say what a number does not mean</div>
+        <p style="margin: 0; color: #B8B3A9; font-size: 15px">A range with the reason it is a range beats one false-precise figure. Name what cannot be separated yet.</p>
       </div>
-      <div class="work-card">
-        <div class="cat">Power BI</div>
-        <h3>Sales &amp; HR dashboards</h3>
-        <p>Interactive Power BI reports — STAR-schema sales metrics with profit and return-rate trends, plus an HR dashboard surfacing top talent and retirement risk.</p>
-        <div class="result"><a href="https://www.datascienceportfol.io/mahmoud2511saad/projects/4" target="_blank" rel="noopener">Sales</a> · <a href="https://www.datascienceportfol.io/mahmoud2511saad/projects/5" target="_blank" rel="noopener">HR</a></div>
+      <div class="lift" style="padding: 22px; border: 1px solid rgba(242,239,232,0.2); border-radius: 12px; background: #1A1F24; display: flex; flex-direction: column; gap: 8px">
+        <div style="font-weight: 600; font-size: 17px">Make the reader self-sufficient</div>
+        <p style="margin: 0; color: #B8B3A9; font-size: 15px">Send the workbook, the raw numbers, and the query they can run every week. Then train them to run it.</p>
       </div>
-      <div class="work-card">
-        <div class="cat">Oracle · SQL</div>
-        <h3>Multi-branch bank database</h3>
-        <p>Relational database design normalized to 3NF for a multi-branch banking system, with complex queries supporting loan approvals and transaction insights.</p>
-        <div class="result"><a href="https://www.datascienceportfol.io/mahmoud2511saad/projects/2" target="_blank" rel="noopener">Case study</a></div>
+      <div class="lift" style="padding: 22px; border: 1px solid rgba(242,239,232,0.2); border-radius: 12px; background: #1A1F24; display: flex; flex-direction: column; gap: 8px">
+        <div style="font-weight: 600; font-size: 17px">Build with AI, keep the judgment</div>
+        <p style="margin: 0; color: #B8B3A9; font-size: 15px">I set the logic, run every query, check the result against the source, and own the outcome. The agent drafts; I validate.</p>
       </div>
     </div>
   </div>
-</section>
+  </section>
 
-<section id="contact">
-  <div class="wrap">
-    <div class="contact-card">
-      <h2>Let's talk</h2>
-      <p>Open to conversations about marketing data science, measurement, and analytics roles. The fastest way to reach me is email.</p>
-      <div class="hero-cta" style="justify-content: center;">
-        <a class="btn btn-primary" href="mailto:mahmoud2511.saad@gmail.com">Email me</a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/mahmoud-saad-617876254/" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn btn-ghost" href="https://github.com/mahmoud25112" target="_blank" rel="noopener">GitHub</a>
+<section id="me" style="max-width: 1120px; margin: 0 auto; padding: 56px 24px; border-top: 1px solid rgba(242,239,232,0.16); display: flex; flex-direction: column; gap: 24px">
+    <div class="reveal" style="display: flex; flex-direction: column; gap: 24px">
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #4FD1C9">Me</div>
+      <h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: -0.01em">Always moving. Always building.</h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px">
+      <div class="lift" style="padding: 22px; border: 1px solid rgba(242,239,232,0.2); border-radius: 12px; display: flex; gap: 14px; align-items: flex-start">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#4FD1C9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 10a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v3a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4z"/><path d="M8 11H7a2 2 0 0 0 0 4h1.5"/><path d="M12 9h5"/><rect x="10" y="17" width="8" height="4" rx="1"/></svg>
+        <div><div style="font-weight: 600">Trains MMA</div><div style="color: #B8B3A9; font-size: 14px">Most mornings before work. The gym is where the patience comes from.</div></div>
+      </div>
+      <div class="lift" style="padding: 22px; border: 1px solid rgba(242,239,232,0.2); border-radius: 12px; display: flex; gap: 14px; align-items: flex-start">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#4FD1C9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 29 14 11l6 9 4-5 9 14z"/><path d="M11 16l3 4"/></svg>
+        <div><div style="font-weight: 600">Hikes</div><div style="color: #B8B3A9; font-size: 14px">Long trails, no phone signal, best thinking of the week.</div></div>
+      </div>
+      <div class="lift" style="padding: 22px; border: 1px solid rgba(242,239,232,0.2); border-radius: 12px; display: flex; gap: 14px; align-items: flex-start">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#4FD1C9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="13" width="24" height="12" rx="2"/><path d="M11 13V7h14v6"/><path d="M11 25v5h14v-5"/><circle cx="25" cy="19" r="1.5"/></svg>
+        <div><div style="font-weight: 600">Builds things</div><div style="color: #B8B3A9; font-size: 14px">3D printing, a magnetic levitation rig, a small rocket, a heat-powered phone charger.</div></div>
       </div>
     </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: #B8B3A9; margin-right: 6px">Certifications</div>
+      <span style="padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(242,239,232,0.3); font-size: 13px">AWS Certified Cloud Practitioner</span>
+      <span style="padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(242,239,232,0.3); font-size: 13px">Google Advanced Data Analytics</span>
+      <span style="padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(242,239,232,0.3); font-size: 13px">Microsoft Power BI Data Analyst Associate</span>
+      <span style="padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(242,239,232,0.3); font-size: 13px">Google Analytics Certification</span>
+      <span style="padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(242,239,232,0.3); font-size: 13px">Google Ads Measurement</span>
+    </div>
+    <p style="margin: 0; color: #B8B3A9; font-size: 14px">B.S. Computer Science, New Jersey Institute of Technology, December 2024. Dean's List, four semesters. Also: The Lord of the Rings: The Two Towers was absolute cinema.</p>
   </div>
-</section>
+  </section>
 
-<footer>
-  <div class="wrap">© 2026 Mahmoud Saad · New York / New Jersey</div>
-</footer>
+<section id="contact" style="max-width: 1120px; margin: 0 auto; padding: 56px 24px 72px; border-top: 1px solid rgba(242,239,232,0.16); display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between">
+    <div class="reveal" style="display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between; width: 100%">
+    <div style="display: flex; flex-direction: column; gap: 8px; flex: 1 1 420px">
+      <h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: -0.01em">Happy to walk through any of it.</h2>
+      <p style="margin: 0; color: #B8B3A9">Analytics, data science, measurement, and BI roles in New York, New Jersey, or remote. Email is fastest.</p>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 12px">
+      <a class="btn" href="mailto:mahmoud2511.saad@gmail.com" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 22px; border-radius: 8px; background: #4FD1C9; color: #0B0E11; font-weight: 600; text-decoration: none; font-size: 15px">mahmoud2511.saad@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/mahmoud-saad-617876254/" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 22px; border-radius: 8px; border: 1px solid rgba(242,239,232,0.34); color: #F2EFE8; text-decoration: none; font-size: 15px">LinkedIn</a>
+      <a class="btn" href="https://github.com/mahmoud25112" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 22px; border-radius: 8px; border: 1px solid rgba(242,239,232,0.34); color: #F2EFE8; text-decoration: none; font-size: 15px">GitHub</a>
+    </div>
+    <div style="flex-basis: 100%; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #B8B3A9; padding-top: 24px; border-top: 1px solid rgba(242,239,232,0.16)">Thanks, Mahmoud · last updated October 2026 · 908-630-7978</div>
+  </div>
+  </section>
 
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Timeline: start the strip at the latest point on narrow screens
+  var strip = document.querySelector('.tl-scroll'); if (strip) strip.scrollLeft = strip.scrollWidth;
+  var nodes = document.querySelectorAll('.tl-node');
+  nodes.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var i = btn.getAttribute('data-node');
+      nodes.forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); b.classList.remove('pulse'); });
+      document.querySelectorAll('.tl-panel').forEach(function (p) { p.hidden = p.id !== 'tl-panel-' + i; });
+      void btn.offsetWidth; btn.classList.add('pulse');
+    });
+  });
+
+  // Work tabs
+  var tabs = document.querySelectorAll('.tab');
+  var cards = document.querySelectorAll('.card');
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      var id = t.getAttribute('data-tab');
+      tabs.forEach(function (x) { x.setAttribute('aria-selected', x === t ? 'true' : 'false'); });
+      var n = 0;
+      cards.forEach(function (c) {
+        var show = c.getAttribute('data-tab') === id;
+        c.hidden = !show;
+        c.classList.remove('enter', 'open');
+        var d = c.querySelector('.case-detail'); if (d) d.hidden = true;
+        var b = c.querySelector('.case-toggle'); if (b) { b.setAttribute('aria-expanded', 'false'); b.textContent = 'Read the full case'; }
+        if (show && !reduce) { c.style.animationDelay = (n * 70) + 'ms'; void c.offsetWidth; c.classList.add('enter'); n++; }
+      });
+    });
+  });
+
+  // Case toggles
+  document.querySelectorAll('.case-toggle').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var d = document.getElementById(b.getAttribute('aria-controls'));
+      var open = d.hidden;
+      d.hidden = !open;
+      b.setAttribute('aria-expanded', open ? 'true' : 'false');
+      b.textContent = open ? 'Close' : 'Read the full case';
+      b.closest('.card').classList.toggle('open', open);
+    });
+  });
+
+  // Count-up
+  function runCount() {
+    var els = document.querySelectorAll('[data-count]');
+    if (reduce) return;
+    var start = performance.now(), dur = 1300;
+    function fmt(el, p) {
+      var k = el.getAttribute('data-count'), a = parseFloat(el.getAttribute('data-a'));
+      if (k === 'range') { var b = parseFloat(el.getAttribute('data-b')); return '$' + (a * p).toFixed(1) + 'M to $' + (b * p).toFixed(1) + 'M'; }
+      if (k === 'k') return Math.round(a * p) + 'K';
+      return Math.max(1, Math.round(a * p)) + ' h to 1';
+    }
+    function step(t) {
+      var p = Math.min(1, (t - start) / dur), eased = 1 - Math.pow(1 - p, 3);
+      els.forEach(function (el) { el.textContent = fmt(el, eased); });
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  // Reveal on scroll
+  var revealEls = document.querySelectorAll('.reveal');
+  var stats = document.getElementById('stats');
+  if (!('IntersectionObserver' in window) || reduce) {
+    revealEls.forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      if (en.target === stats) runCount(); else en.target.classList.add('in');
+      io.unobserve(en.target);
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(function (el) { io.observe(el); });
+  io.observe(stats);
+})();
+</script>
 </body>
 </html>
