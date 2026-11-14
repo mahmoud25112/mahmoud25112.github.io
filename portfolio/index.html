@@ -1,0 +1,1213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Mahmoud Saad, analytics consultant. Six measurement and analytics cases, each with its number, its check and what it does not mean.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mahmoud25112.github.io/portfolio/">
+<meta property="og:title" content="Mahmoud Saad · Measurement Portfolio">
+<meta property="og:description" content="Mahmoud Saad, analytics consultant. Six measurement and analytics cases, each with its number, its check and what it does not mean.">
+<meta property="og:image" content="https://mahmoud25112.github.io/portfolio/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://mahmoud25112.github.io/portfolio/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111111'/%3E%3Ctext x='32' y='43' font-family='system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='30' font-weight='700' text-anchor='middle' fill='%23ffffff'%3Ems%3C/text%3E%3C/svg%3E">
+<title>Mahmoud Saad · Measurement Portfolio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: black on white with one accent. Grey is context, the accent is the point of each chart. Home is short; each case opens as its own view. */
+:root{
+  --paper:#FFFFFF; --surface:#F5F6F8; --ink:#111111; --muted:#4B5563; --line:#E5E7EB; --base:#949494; --soft:#E3E5EA;
+  --accent:#1D4ED8; --tint:#EEF2FF; --bright:#8AA4FF; --on-accent:#FFFFFF;
+  --pos:#15803D; --neg:#B91C1C; --dash:#0B8F84;
+  --serif:"Instrument Serif","Iowan Old Style",Georgia,serif;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+:root[data-pal="violet"]{--accent:#6D28D9;--tint:#F3EEFF;--bright:#B49CFF}
+:root[data-pal="orange"]{--accent:#C2410C;--tint:#FFF1E8;--bright:#FF9A62;--neg:#111111}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--paper:#0E0F12;--surface:#17191E;--ink:#F3F4F6;--muted:#A3AAB8;--line:#2A2D35;--base:#7C828E;--soft:#30343D;
+    --accent:#8AA4FF;--tint:#1A2140;--bright:#8AA4FF;--on-accent:#0E0F12;--pos:#5BD68F;--neg:#F28B82;--dash:#4FD1C4;color-scheme:dark}
+  :root[data-pal="violet"]:not([data-theme="light"]){--accent:#B49CFF;--tint:#231A40;--bright:#B49CFF}
+  :root[data-pal="orange"]:not([data-theme="light"]){--accent:#FF9A62;--tint:#3A2012;--bright:#FF9A62;--neg:#F3F4F6}
+}
+:root[data-theme="dark"]{--paper:#0E0F12;--surface:#17191E;--ink:#F3F4F6;--muted:#A3AAB8;--line:#2A2D35;--base:#7C828E;--soft:#30343D;
+  --accent:#8AA4FF;--tint:#1A2140;--bright:#8AA4FF;--on-accent:#0E0F12;--pos:#5BD68F;--neg:#F28B82;--dash:#4FD1C4;color-scheme:dark}
+:root[data-theme="dark"][data-pal="violet"]{--accent:#B49CFF;--tint:#231A40;--bright:#B49CFF}
+:root[data-theme="dark"][data-pal="orange"]{--accent:#FF9A62;--tint:#3A2012;--bright:#FF9A62;--neg:#F3F4F6}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--paper)}
+h1,h2,h3,h4,h5,p,dl,dd,ol,ul,figure{margin:0}
+ol,ul{padding:0;list-style:none}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.08;letter-spacing:-.01em;text-wrap:balance}
+a{color:inherit}
+a:focus-visible,summary:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:700px){ .wrap{padding-left:max(32px,env(safe-area-inset-left,0px));padding-right:max(32px,env(safe-area-inset-right,0px))} }
+
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
+.wordmark{font-weight:700;letter-spacing:-.02em;text-decoration:none;font-size:17px}
+.nav nav{display:flex;gap:4px;align-items:center}
+.nav nav a{color:var(--muted);text-decoration:none;font-size:15px;font-weight:500;padding:6px 10px;border-radius:8px}
+.nav nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:10px;font-size:15px;font-weight:600;text-decoration:none;border:1px solid var(--ink);color:var(--ink);transition:transform .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.nav nav a.btn{padding:8px 14px;color:var(--paper);background:var(--ink);margin-left:6px}
+
+.eyebrow{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.sec{padding-block:72px;border-top:1px solid var(--line)}
+.sec-head{max-width:700px}
+.sec-head h2{font-size:clamp(30px,4.4vw,44px);margin-top:10px}
+.sec-head p{color:var(--muted);margin-top:12px;max-width:60ch}
+
+/* hero */
+.hero{padding-block:56px 72px}
+.hero .wrap{display:grid;gap:44px;align-items:center}
+@media (min-width:960px){ .hero .wrap{grid-template-columns:1.05fr .95fr;gap:56px} .hero{padding-block:84px 92px} }
+.hero h1{font-size:clamp(40px,6vw,70px);margin-top:18px}
+@media (min-width:960px){ .hero .eyebrow{white-space:nowrap;letter-spacing:.07em;font-size:12px} }
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero .context{margin-top:20px;max-width:52ch;color:var(--muted);font-size:18px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.receipt{border:1px solid var(--ink);border-radius:16px;padding:24px;background:var(--paper)}
+.receipt .tag{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.receipt h3{font-size:28px;margin-top:8px}
+.receipt .cap{margin-top:16px;font-size:15px;color:var(--muted)}
+.receipt .cap strong{color:var(--ink);font-weight:600}
+.receipt a,.link{color:var(--accent);font-weight:600;text-underline-offset:3px}
+
+/* diverging bars */
+.dv{display:grid;gap:12px;margin-top:20px;--zero:37.5%;--ref:27.2%}
+.dv-row{display:grid;grid-template-columns:118px 1fr 64px;gap:12px;align-items:center;font-size:15px}
+.dv-l{font-weight:600;line-height:1.3}
+.dv-l small{display:block;font-size:12.5px;color:var(--muted);font-weight:400}
+.dv-t{position:relative;height:18px}
+.dv-t::before{content:"";position:absolute;left:var(--zero);top:-6px;bottom:-6px;width:1.5px;background:var(--ink)}
+.dv-t::after{content:"";position:absolute;left:var(--ref);top:-7px;bottom:-7px;border-left:2px dashed var(--base)}
+.dv-t i{position:absolute;top:0;bottom:0;border-radius:3px}
+.dv-t i.p{left:var(--zero);background:var(--pos);transform-origin:left}
+.dv-t i.n{right:calc(100% - var(--zero));background:var(--neg);transform-origin:right}
+.dv-t i.z{left:var(--zero);width:4px;background:var(--base)}
+.dv-v{text-align:right;font-weight:700}
+.dv-v.p{color:var(--pos)} .dv-v.n{color:var(--neg)} .dv-v.z{color:var(--muted)}
+.dv-ref{font-size:13px;color:var(--muted)}
+
+/* work cards */
+.glance{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:36px;border-top:1px solid var(--ink);border-left:1px solid var(--line)}
+.g{display:flex;flex-direction:column;gap:8px;padding:22px;text-decoration:none;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .2s}
+.g:hover{background:var(--surface)}
+.g .n{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.g .big{font-family:var(--serif);font-size:32px;line-height:1.05;color:var(--accent);text-wrap:balance}
+.g .t{font-weight:600;font-size:16px;line-height:1.35}
+.g .d{font-size:14.5px;color:var(--muted);line-height:1.5}
+.g .go{margin-top:auto;padding-top:6px;font-size:14px;font-weight:600}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:start}
+.about h2{font-size:clamp(30px,4.4vw,44px);margin-top:10px}
+.about .story{margin-top:16px;color:var(--muted)}
+.path{display:flex;flex-wrap:wrap;gap:8px 0;margin-top:22px;font-size:14px;font-weight:600}
+.path li{display:flex;align-items:center}
+.path li:not(:last-child)::after{content:"→";margin:0 10px;color:var(--base)}
+.edu{margin-top:18px;font-size:14.5px;color:var(--muted)}
+.does{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 32px}
+.do svg{width:26px;height:26px;color:var(--accent)}
+.do h3{font-family:var(--sans);font-weight:700;font-size:16.5px;line-height:1.3;letter-spacing:0;margin-top:10px}
+.do p{font-size:15px;color:var(--muted);margin-top:6px}
+.service{grid-column:1/-1;font-size:15px;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
+.service b{color:var(--ink);font-weight:600}
+
+/* method flow */
+.flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));margin-top:36px;counter-reset:f}
+.flow li{position:relative;padding-right:18px}
+.flow li::before{counter-increment:f;content:counter(f);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--paper);font-weight:700;font-size:14px;position:relative;z-index:1}
+.flow li:nth-child(4)::before{background:var(--accent);color:var(--on-accent)}
+.flow li::after{content:"";position:absolute;left:34px;right:0;top:16px;height:2px;background:var(--line)}
+.flow li:last-child::after{display:none}
+.flow strong{display:block;margin-top:12px;font-size:16px;line-height:1.3}
+.flow span{display:block;margin-top:6px;font-size:14.5px;color:var(--muted);line-height:1.5}
+
+/* skills card */
+.cardrow{display:grid;grid-template-columns:minmax(0,430px) minmax(0,1fr);gap:56px;align-items:center}
+.pcard{background:#111318;color:#F3F4F6;border-radius:20px;padding:24px;border:1px solid #2A2D35}
+.pc-top{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.pc-pos{background:var(--bright);color:#111318;border-radius:6px;padding:3px 8px}
+.pc-club{color:#A3AAB8}
+.pc-name{font-family:var(--serif);font-size:34px;line-height:1.05;margin-top:16px}
+.pc-role{font-size:13.5px;color:#A3AAB8;margin-top:2px}
+.pc-sk{margin-top:18px;border-top:1px solid #2A2D35}
+.pc-sk li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #2A2D35;font-size:14.5px;font-weight:600;line-height:1.3}
+.dots{display:flex;gap:5px;flex:none}
+.dots a{width:23px;height:23px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:700;text-decoration:none;background:var(--bright);color:#111318;transition:transform .15s}
+.dots a:hover{transform:scale(1.15)}
+.pc-key{font-size:11.5px;color:#A3AAB8;margin-top:10px;text-wrap:balance}
+.pc-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:16px}
+.pc-stats b{display:block;font-family:var(--serif);font-weight:400;font-size:28px;line-height:1}
+.pc-stats span{display:block;font-size:10.5px;line-height:1.3;color:#A3AAB8;margin-top:4px}
+.skills h2{font-size:clamp(30px,4.2vw,42px);margin-top:10px}
+.skills > p{color:var(--muted);margin-top:12px;max-width:52ch}
+.howread{margin-top:20px;display:grid;gap:10px;font-size:15px}
+.howread li{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start}
+.howread li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);margin-top:9px;justify-self:center}
+
+/* tools */
+.tools{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:48px;border-top:1px solid var(--ink)}
+.tool{padding:20px 20px 20px 0;border-bottom:1px solid var(--line)}
+.tool small{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
+.tool h3{font-family:var(--sans);font-weight:700;font-size:18px;letter-spacing:-.01em;line-height:1.25}
+.tool p{font-size:14.5px;color:var(--muted);margin-top:6px}
+.also{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:24px}
+.also h4,.card h4,.more-body h5{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.chips span{font-size:13.5px;border:1px solid var(--line);border-radius:999px;padding:4px 11px}
+
+/* code projects */
+.code{margin-top:32px;border-top:1px solid var(--ink)}
+.code a{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.6fr) 84px;gap:8px 28px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line);text-decoration:none}
+.code a:hover b{color:var(--accent)}
+.code b{font-size:16.5px;font-weight:700;line-height:1.3}
+.code b small{display:block;font-size:13px;color:var(--muted);font-weight:500;margin-top:2px}
+.code span{font-size:15px;color:var(--muted)}
+.code em{font-style:normal;font-size:14px;font-weight:600;color:var(--accent);white-space:nowrap;text-align:right}
+
+/* now */
+.now{display:grid;gap:28px;align-items:center}
+@media (min-width:860px){ .now{grid-template-columns:1.1fr .9fr} }
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:var(--tint);border-radius:999px;padding:5px 12px}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 1.8s ease-in-out infinite}
+.now h2{font-size:clamp(28px,3.8vw,40px);margin-top:14px}
+.now p{color:var(--muted);margin-top:12px;max-width:54ch}
+.pipe{display:grid;gap:8px}
+.pipe li{display:grid;grid-template-columns:22px 1fr auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:11px 14px;font-size:15px;font-weight:600}
+.pipe li em{font-style:normal;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.pipe li.doing{border-color:var(--accent);background:var(--tint)}
+.pipe li.doing em{color:var(--accent)}
+.pipe li::before{content:"";width:16px;height:16px;border-radius:50%;border:2px solid var(--base)}
+.pipe li.doing::before{border-color:var(--accent);background:var(--accent);box-shadow:inset 0 0 0 3px var(--tint)}
+
+/* case view */
+.case{padding-block:44px 72px;border-top:1px solid var(--line)}
+.back{display:inline-block;font-size:14.5px;font-weight:600;color:var(--muted);text-decoration:none;margin-bottom:22px}
+.back:hover{color:var(--ink)}
+.case-head{max-width:800px}
+.kicker{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.case h3{font-size:clamp(32px,4.8vw,52px);margin-top:10px}
+.finding{font-size:19px;line-height:1.5;margin-top:14px;max-width:60ch}
+.deliv{margin-top:14px;font-size:15.5px;color:var(--muted);max-width:66ch;border-left:2px solid var(--ink);padding-left:14px}
+.deliv b{color:var(--ink);font-weight:700}
+.steps4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:32px}
+.steps4 li{background:var(--surface);border-radius:12px;padding:16px;position:relative;font-size:15px;line-height:1.5}
+.steps4 li b{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:6px}
+.steps4 li:last-child{background:var(--tint)}
+.steps4 li:last-child b{color:var(--accent)}
+.steps4 li:not(:last-child)::after{content:"";position:absolute;right:-10px;top:50%;width:8px;height:8px;border-top:2px solid var(--base);border-right:2px solid var(--base);transform:translateY(-50%) rotate(45deg);z-index:1}
+.case-body{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:28px;margin-top:28px;align-items:start}
+.fig{border:1px solid var(--line);border-radius:14px;padding:22px;background:var(--paper)}
+.fig + .fig,.fig + .stiles,.stiles + .fig{margin-top:16px}
+.fig-title{font-weight:700;font-size:16.5px;line-height:1.35;text-wrap:balance}
+.fig-sub{font-size:14px;color:var(--muted);margin-top:4px}
+.fig-note{font-size:13.5px;color:var(--muted);margin-top:14px}
+.side{display:grid;gap:14px}
+.card{background:var(--surface);border-radius:14px;padding:20px}
+.card p{margin-top:8px;font-size:15.5px}
+.card.limit{background:var(--paper);border:1.5px dashed var(--base)}
+.card.limit h4{color:var(--ink)}
+details.more{margin-top:20px;border:1px solid var(--line);border-radius:12px}
+details.more summary{cursor:pointer;list-style:none;padding:14px 18px;font-weight:600;font-size:15px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::after{content:"+";font-size:20px;line-height:1;color:var(--accent);transition:transform .2s}
+details.more[open] summary::after{transform:rotate(45deg)}
+.more-body{padding:4px 18px 18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 28px;border-top:1px solid var(--line)}
+.more-body div{padding-top:14px;min-width:0}
+.more-body p{font-size:15px;margin-top:6px}
+.stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.stack span{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--muted)}
+.label{margin-top:16px;font-size:13px;color:var(--muted)}
+.formula{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13.5px;margin-top:6px;overflow-x:auto;white-space:nowrap}
+.casenav{display:flex;justify-content:space-between;gap:16px;margin-top:40px;padding-top:20px;border-top:1px solid var(--ink);font-weight:600;font-size:15px}
+.casenav a{text-decoration:none}
+.casenav a:hover{color:var(--accent)}
+.casenav small{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* step scorecard */
+.sc{margin-top:18px;--zero:33.333%}
+.sc-row,.sc-head{display:grid;grid-template-columns:200px 170px 1fr 70px;gap:12px;align-items:center;padding:10px 10px;border-radius:10px}
+.sc-head{font-size:12px;color:var(--muted);font-weight:600;padding-block:0 4px}
+.sc-axis{position:relative;height:16px}
+.sc-axis i{position:absolute;font-style:normal;transform:translateX(-50%);white-space:nowrap}
+.sc-axis i:first-child{transform:none}
+.sc-axis i:last-child{transform:translateX(-100%)}
+.case-body.wide{grid-template-columns:1fr}
+.case-body.wide .side{grid-template-columns:1fr 1fr}
+.sc-row.hl{background:var(--tint)}
+.sc-l{font-size:14.5px;font-weight:600;line-height:1.3;grid-area:auto}
+.sc-r{font-size:14.5px;color:var(--muted);white-space:nowrap}
+.sc-r b{color:var(--ink)}
+.sc-t{position:relative;height:16px;background:linear-gradient(90deg,transparent 16.667%,var(--soft) 16.667%,var(--soft) 50%,transparent 50%)}
+.sc-t::before{content:"";position:absolute;left:var(--zero);top:-7px;bottom:-7px;width:1.5px;background:var(--ink)}
+.sc-t i{position:absolute;top:2px;bottom:2px;border-radius:3px;background:var(--base)}
+.sc-t i.p{left:var(--zero);transform-origin:left}
+.sc-t i.n{right:calc(100% - var(--zero));transform-origin:right}
+.sc-row.hl .sc-t i{background:var(--accent)}
+.sc-v{font-weight:700;font-size:14.5px;text-align:right}
+.sc-row.hl .sc-v{color:var(--accent)}
+.sc-ann{grid-column:1/-1;font-size:13.5px;color:var(--ink);font-weight:500}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
+.stat{background:var(--surface);border-radius:12px;padding:14px 16px}
+.stat b{display:block;font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.1}
+.stat span{font-size:13px;color:var(--muted);line-height:1.35;display:block;margin-top:4px}
+
+/* slope, range, share */
+.svgc{width:100%;height:auto;display:block;margin-top:12px}
+.svgc text{font-family:var(--sans);font-size:13.5px;fill:var(--muted)}
+.svgc text.k{fill:var(--ink);font-weight:700}
+.svgc text.a{fill:var(--accent);font-weight:700}
+.svgc .gl{stroke:var(--line);stroke-width:1.5}
+.svgc .ln-b{stroke:var(--base);stroke-width:3;fill:none;stroke-linecap:round}
+.svgc .ln-a{stroke:var(--accent);stroke-width:3.5;fill:none;stroke-linecap:round}
+.svgc .d-b{fill:var(--base)} .svgc .d-a{fill:var(--accent)} .svgc .d-k{fill:var(--ink)}
+.svgc .br{stroke:var(--ink);stroke-width:1.5;fill:none}
+.svgc .ax{stroke:var(--base);stroke-width:1.5;fill:none}
+.svgc .avg{stroke:var(--ink);stroke-width:1.75;stroke-dasharray:5 5;fill:none;opacity:.75}
+.svgc .tan{stroke:var(--accent);stroke-width:4;fill:none;stroke-linecap:round}
+.svgc .curve{stroke:var(--base);stroke-width:3.5;fill:none;stroke-linecap:round}
+.svgc .dot{fill:var(--paper);stroke:var(--ink);stroke-width:3}
+.svgc.nar{display:none;max-width:340px}
+@media (max-width:600px){.svgc.wid{display:none}.svgc.nar{display:block}}
+.range{margin-top:22px;position:relative;padding-top:26px;padding-bottom:44px}
+.rtrack{position:relative;height:18px;border-radius:9px;background:var(--soft)}
+.rband{position:absolute;top:0;bottom:0;left:36%;width:42.667%;background:linear-gradient(90deg,transparent,var(--accent) 12%,var(--accent) 88%,transparent);opacity:.9;transform-origin:left}
+.rtick{position:absolute;left:66.667%;top:-9px;bottom:-9px;width:3px;background:var(--ink)}
+.rl{position:absolute;font-size:13px;line-height:1.25}
+.rl b{font-size:15px}
+.rl.a{left:36%;top:0;transform:translateX(-50%)} .rl.b{left:78.667%;top:0;transform:translateX(-50%)}
+.rl.c{left:66.667%;bottom:0;transform:translateX(-50%);color:var(--muted);text-align:center;white-space:nowrap}
+.rl.d{left:0;bottom:0;color:var(--muted)} .rl.e{right:0;bottom:0;color:var(--muted)}
+.share{display:grid;gap:10px;margin-top:16px;font-size:14px}
+.share div{display:grid;grid-template-columns:96px 1fr 52px;gap:10px;align-items:center}
+.share u{display:block;height:12px;border-radius:6px;background:var(--soft);position:relative;overflow:hidden;text-decoration:none}
+.share u i{position:absolute;inset:0 auto 0 0;background:var(--accent);transform-origin:left}
+.share b{text-align:right}
+
+/* stat tiles */
+.stiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.stile{background:var(--surface);border-radius:14px;padding:18px 20px}
+.stile b{display:block;font-family:var(--serif);font-weight:400;font-size:34px;line-height:1.1}
+.stile b em{font-style:normal;color:var(--accent)}
+.stile span{display:block;font-size:14.5px;color:var(--muted);margin-top:6px}
+
+/* dumbbell */
+.db{display:grid;gap:12px;margin-top:18px}
+.db-row{display:grid;grid-template-columns:132px 1fr 84px;gap:12px;align-items:center;font-size:14.5px}
+.db-l{font-weight:600}
+.db-t{position:relative;height:14px;background:linear-gradient(90deg,transparent calc(14.286% - 1px),var(--ink) calc(14.286% - 1px),var(--ink) calc(14.286% + 1px),transparent calc(14.286% + 1px))}
+.db-t i{position:absolute;top:50%}
+.db-t i.ln{height:3px;margin-top:-1.5px;background:var(--soft)}
+.db-t i.a,.db-t i.m{width:14px;height:14px;border-radius:50%;margin:-7px 0 0 -7px}
+.db-t i.a{background:var(--base)} .db-t i.m{background:var(--accent)}
+.db-v{text-align:right;color:var(--muted);white-space:nowrap}
+.db-v b{color:var(--accent)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:14px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+
+/* agents diagram */
+.agents{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:10px 12px;text-align:center;font-size:14px}
+.node{border:1px solid var(--line);border-radius:12px;padding:12px;line-height:1.35}
+.node b{display:block;font-size:14.5px}
+.node span{color:var(--muted);font-size:13px}
+.node.me{grid-column:1/-1;background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.node.me span{color:color-mix(in srgb,var(--paper) 72%,transparent)}
+.node.doc{grid-column:1/-1;border-color:var(--accent);background:var(--tint)}
+
+/* live dashboard */
+.dash{padding:0;overflow:hidden;margin-top:28px}
+.dhead{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--line)}
+.dbrand{font-family:var(--serif);font-size:22px;letter-spacing:.08em;margin-right:10px}
+.dbadge{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);background:var(--soft);border-radius:999px;padding:4px 10px;vertical-align:3px}
+.dctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
+.seg button{font:inherit;font-size:13.5px;font-weight:600;padding:7px 12px;border:0;background:transparent;color:var(--muted);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.dsel{font:inherit;font-size:13.5px;font-weight:600;padding:7px 10px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.dbody{padding:20px}
+.dgrid{display:grid;gap:28px;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);align-items:start}
+.dgrid > div{min-width:0}
+.dh{font-family:var(--serif);font-weight:400;font-size:21px;display:flex;align-items:center;gap:14px;margin:0 0 14px}
+.dh::before,.dh::after{content:"";flex:1;height:1px;background:var(--dash);opacity:.55}
+.scroll{overflow-x:auto}
+.kpi{display:grid;grid-template-columns:92px repeat(4,minmax(98px,1fr));gap:6px;min-width:510px;font-size:13px}
+.kpi .ch{font-weight:700;font-size:12.5px;line-height:1.25;padding:0 4px 4px}
+.kpi .ch small{display:block;font-weight:400;color:var(--muted);font-size:11px}
+.kpi .rh{font-weight:700;align-self:center;line-height:1.25}
+.kc,.tl{background:color-mix(in srgb,var(--dash) 12%,var(--paper));border-radius:8px;padding:9px 10px}
+.kc b{display:block;font-size:18px;line-height:1.2;letter-spacing:-.01em}
+.kc.big b{font-size:22px}
+.kc span,.tl span{font-size:12px;font-weight:600}
+.up{color:var(--dash)} .dn{color:var(--muted)}
+.dsub{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;margin-top:22px;font-size:14px;font-weight:700}
+.dbars{position:relative;display:grid;grid-template-columns:repeat(14,1fr);gap:4px;height:150px;align-items:end;margin-top:12px;border-bottom:1px solid var(--line)}
+.dbars button{border:0;padding:0;border-radius:3px 3px 0 0;background:var(--base);cursor:pointer;min-height:2px;transition:height .5s cubic-bezier(.2,.8,.2,1)}
+.dbars button.ab{background:var(--dash)} .dbars button.nl{background:color-mix(in srgb,var(--dash) 38%,var(--paper))}
+.dbars button.sel{outline:2px solid var(--ink);outline-offset:1px}
+.davg{position:absolute;left:0;right:0;border-top:2px dashed var(--muted);pointer-events:none;transition:bottom .5s}
+.dax{display:grid;grid-template-columns:repeat(14,1fr);gap:4px;font-size:10.5px;line-height:1.25;color:var(--muted);text-align:center;margin-top:5px}
+.dread{font-size:13.5px;color:var(--muted);margin-top:10px;min-height:2.9em}
+.dread b{color:var(--ink)}
+table.heat{border-collapse:separate;border-spacing:2px;width:100%;min-width:440px;font-size:11px;table-layout:fixed}
+table.heat th:first-child{width:44px}
+table.heat th{font-weight:600;color:var(--muted);text-align:left;white-space:nowrap;padding:2px 2px}
+table.heat thead th{text-align:right}
+table.heat td{text-align:right;padding:2px 4px;border-radius:3px;height:20px}
+table.heat .tot th,table.heat .tot td{font-weight:700;color:var(--ink);border-top:1px solid var(--line)}
+.dfresh{font-size:13px;font-weight:600;margin-bottom:10px}
+.tiles3{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:10px}
+.tl{border-radius:10px;padding:12px 14px;min-width:0}
+.tl small{font-size:12.5px;color:var(--muted);font-weight:600}
+.tl b{display:block;font-size:25px;line-height:1.25;letter-spacing:-.01em}
+.tl span{display:block;line-height:1.5}
+.dline{width:100%;height:auto;display:block;margin-top:14px;touch-action:pan-y;cursor:crosshair}
+.dline .g{stroke:var(--line);stroke-width:1}
+.dline text{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+.dline path{fill:none}
+.dline .s0{stroke:var(--dash);stroke-width:3;stroke-linejoin:round}
+.dline .s1{stroke:var(--muted);stroke-width:1.5;stroke-dasharray:5 4}
+.dline .s2{stroke:var(--muted);stroke-width:1.5;stroke-dasharray:1.5 4;stroke-linecap:round}
+.dline .s3{stroke:color-mix(in srgb,var(--dash) 45%,var(--paper));stroke-width:1.5}
+.dline circle{fill:var(--dash)}
+.dline .guide{stroke:var(--ink);stroke-width:1;opacity:.5}
+table.mk{width:100%;border-collapse:collapse;font-size:12.5px;min-width:400px}
+table.mk th,table.mk td{padding:7px 5px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+table.mk thead th{white-space:normal;line-height:1.25;vertical-align:bottom;font-size:12px;color:var(--muted);font-weight:600;background:color-mix(in srgb,var(--dash) 10%,var(--paper))}
+table.mk th:first-child{text-align:left;font-weight:600}
+table.mk .tot th,table.mk .tot td{font-weight:700;border-bottom:0}
+.dfoot{padding:14px 20px;border-top:1px solid var(--line);font-size:13.5px;color:var(--muted)}
+.notes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px;counter-reset:n}
+.notes li{font-size:14.5px;color:var(--muted);padding-left:34px;position:relative}
+.notes li::before{counter-increment:n;content:counter(n);position:absolute;left:0;top:1px;width:24px;height:24px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-size:12px;font-weight:700}
+.notes b{color:var(--ink);font-weight:600}
+
+/* contact */
+.contact-sec{padding-block:24px 0}
+.contact{background:var(--ink);color:var(--paper);border-radius:22px;padding:52px 28px}
+.contact .eyebrow{color:color-mix(in srgb,var(--paper) 65%,transparent)}
+.contact h2{font-size:clamp(36px,5.6vw,60px);margin-top:10px}
+.contact p{margin-top:14px;max-width:52ch;color:color-mix(in srgb,var(--paper) 78%,transparent)}
+.contact .btn{border-color:color-mix(in srgb,var(--paper) 40%,transparent);color:var(--paper)}
+.contact .btn.primary{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.mail{font-size:15px;user-select:all}
+.quiet{font-size:14.5px}
+@media (min-width:860px){ .contact{padding:68px 60px} }
+footer{padding-block:24px 84px;font-size:13px;color:var(--muted)}
+
+/* colour picker (preview only) */
+.pal{position:fixed;right:calc(12px + env(safe-area-inset-right,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:40;display:flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);border-radius:999px;padding:8px 10px 8px 14px;font-size:12.5px;font-weight:600;box-shadow:0 8px 24px -8px rgba(0,0,0,.45)}
+.pal button{width:24px;height:24px;border-radius:50%;border:2px solid transparent;cursor:pointer;padding:0;outline-offset:2px}
+.pal button[aria-pressed="true"]{border-color:var(--paper)}
+
+/* views */
+.js .case{display:none}
+.js .case.active{display:block;border-top:0}
+.js.in-case .home{display:none}
+
+/* motion */
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.8)}}
+@keyframes dash{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+.in{animation:rise .6s cubic-bezier(.2,.8,.2,1) both}
+.in .dv-t i,.in .sc-t i,.in .rband,.in .share u i{animation:grow .9s .15s cubic-bezier(.2,.8,.2,1) both}
+.in .ln-a,.in .ln-b,.in .curve{stroke-dasharray:1;animation:dash 1.2s .1s ease-out both}
+@media (prefers-reduced-motion: reduce){ *,*::before,*::after{animation:none!important;transition:none!important} html{scroll-behavior:auto} }
+
+@media (max-width:1000px){
+  .glance{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .about,.cardrow,.case-body,.dgrid,.case-body.wide .side{grid-template-columns:1fr}
+  .about{gap:36px} .cardrow{gap:32px}
+  .tools{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps4 li:not(:last-child)::after{display:none}
+  .flow{grid-template-columns:1fr;gap:20px}
+  .flow li{display:grid;grid-template-columns:34px 1fr;gap:0 16px;padding:0}
+  .flow li::before{grid-row:span 2}
+  .flow li::after{left:16px;right:auto;top:34px;bottom:-20px;width:2px;height:auto}
+  .flow strong{margin-top:5px}
+  .notes{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .sec{padding-block:56px}
+  .nav nav a:not(.btn){display:none}
+  .glance,.does,.tools,.also,.steps4,.more-body,.stats,.stiles,.tiles3{grid-template-columns:1fr}
+  .tool{padding-right:0}
+  .code a{grid-template-columns:1fr;gap:6px} .code em{text-align:left}
+  .finding{font-size:17.5px}
+  .dv-row{grid-template-columns:112px 1fr 58px;gap:10px} .dv-l small{white-space:nowrap}
+  .sc-head{display:none}
+  .sc-row{grid-template-columns:1fr auto;gap:6px 12px;border:1px solid var(--line);margin-top:8px;padding:12px}
+  .sc-row.hl{border-color:var(--accent)}
+  .sc-l{grid-column:1} .sc-v{grid-column:2;grid-row:1}
+  .sc-r{grid-column:1/-1;font-size:17px} .sc-t{grid-column:1/-1}
+  .db-row{grid-template-columns:104px 1fr 70px;gap:8px;font-size:13.5px}
+  .pc-stats{grid-template-columns:repeat(2,1fr);gap:14px 8px}
+  .pc-sk li{font-size:13.5px}
+  .dline{min-width:540px} .dbody{padding:16px} .dhead{padding:14px 16px}
+  .rl.c{white-space:normal;width:104px}
+  .contact{padding:40px 22px;border-radius:18px}
+  .pipe li{grid-template-columns:22px 1fr} .pipe li em{grid-column:2}
+  .casenav{flex-direction:column}
+  .pal span{display:none} .pal{padding:8px 10px}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="wordmark" href="#top">mahmoud saad</a>
+    <nav aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a class="btn" href="mailto:mahmoud2511.saad@gmail.com?subject=Hello%20from%20your%20portfolio">Email me</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="home">
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Analytics Consultant · fifty-five (Brandtech Group) · New York</p>
+      <h1>I measure what your marketing is worth, then I <em>prove it.</em></h1>
+      <p class="context">Three years in marketing analytics. I own three client accounts end to end, and the SQL, BigQuery and dashboard work for a seven-client team serving global luxury and retail brands.</p>
+      <div class="cta">
+        <a class="btn primary" href="#work">See the work</a>
+        <a class="btn" href="https://mahmoud25112.github.io/Mahmoud_Saad_Resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
+      </div>
+    </div>
+    <aside class="receipt" aria-label="Example finding: weather and Memorial Day sales">
+      <p class="tag">One finding, start to finish</p>
+      <h3>Sales fell 3.3%. The drop followed the rain.</h3>
+      <div class="dv">
+        <div class="dv-row"><div class="dv-l">Less rain<small>8 states</small></div><div class="dv-t"><i class="p" style="width:53.75%"></i></div><div class="dv-v p">+17.2%</div></div>
+        <div class="dv-row"><div class="dv-l">Same rain<small>11 states · control</small></div><div class="dv-t"><i class="z"></i></div><div class="dv-v z">+0.09%</div></div>
+        <div class="dv-row"><div class="dv-l">More rain<small>32 states</small></div><div class="dv-t"><i class="n" style="width:25.6%"></i></div><div class="dv-v n">−8.2%</div></div>
+        <p class="dv-ref">Dashed line: all states, −3.3%.</p>
+      </div>
+      <p class="cap">Holiday weekend sales against last year, by how the rain changed. <strong>No change in rain, no change in sales.</strong> It does not prove rain caused the whole drop. <a href="#weather">Read the case</a></p>
+    </aside>
+  </div>
+</section>
+
+<section class="sec" id="work">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <p class="eyebrow">Selected work</p>
+      <h2>Six cases. Each one says what it does not mean.</h2>
+      <p>Clients are described by industry. Percentages are real. Revenue, orders and traffic are indexed or left out.</p>
+    </div>
+    <div class="glance" data-reveal>
+      <a class="g" href="#weather"><span class="n">01 · Root cause</span><span class="big">−3.3%, explained</span><span class="t">Why Memorial Day sales fell</span><span class="d">The drop followed the rain, state by state.</span><span class="go">Read the case →</span></a>
+      <a class="g" href="#deep-linking"><span class="n">02 · Incrementality</span><span class="big">+34.5% vs +15%</span><span class="t">What iOS deep linking was worth</span><span class="d">iOS with the change, against Android without it.</span><span class="go">Read the case →</span></a>
+      <a class="g" href="#fulfillment"><span class="n">03 · Matched comparison</span><span class="big">+18% at one step</span><span class="t">Shared warehouse vs standalone stores</span><span class="d">One funnel step explains the whole revenue gap.</span><span class="go">Read the case →</span></a>
+      <a class="g" href="#dashboards"><span class="n">04 · Dashboards</span><span class="big">21 markets, to the cent</span><span class="t">Dashboards built for leadership</span><span class="d">Holiday sales every 30 minutes, with a demo you can click.</span><span class="go">Read the case →</span></a>
+      <a class="g" href="#mmm"><span class="n">05 · Marketing mix modeling</span><span class="big">The next dollar</span><span class="t">A readout tool that helped win a project</span><span class="d">Shows where extra budget stops paying for itself.</span><span class="go">Read the case →</span></a>
+      <a class="g" href="#tools"><span class="n">06 · Automation</span><span class="big">16 hours to 1</span><span class="t">Internal tools, and what they bought</span><span class="d">A dashboard build, same quality, a fraction of the time.</span><span class="go">Read the case →</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="about">
+  <div class="wrap about">
+    <div data-reveal>
+      <p class="eyebrow">About</p>
+      <h2>I learned marketing by doing it, then learned to measure it.</h2>
+      <p class="story">I studied computer science and found I liked data more than building software. I ran the ads, website and tracking for my family's business, then managed 50+ ad accounts at an agency. Now I measure what marketing does for global luxury and retail brands at fifty-five, a data consultancy.</p>
+      <ol class="path"><li>Family business marketing</li><li>Agency, 50+ ad accounts</li><li>Measurement for global brands</li></ol>
+      <p class="edu">B.S. Computer Science, New Jersey Institute of Technology, 2024. Dean's List, four semesters.</p>
+    </div>
+    <div class="does" data-reveal>
+      <div class="do">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+        <h3>Measurement and incrementality</h3>
+        <p>I work out what a change was really worth, and separate true lift from what would have happened anyway.</p></div>
+      <div class="do">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 14l3-3 3 2 4-5M9 21h6"/></svg>
+        <h3>Dashboards built for leadership</h3>
+        <p>From the data model up to the page. Every number is defined in writing and checked against the source.</p></div>
+      <div class="do">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.500-3.200 7.800-8 9-4.800-1.200-8-4.500-8-9V6l8-3z"/><path d="M8.500 12l2.500 2.500 4.500-5"/></svg>
+        <h3>Tracking and QA</h3>
+        <p>I make the data trustworthy before anyone analyses it: tracking specs, live QA, and root-cause work when a number looks wrong.</p></div>
+      <div class="do">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg>
+        <h3>Internal tools that buy speed</h3>
+        <p>I build the tools that make the analysis fast, including two AI agents I run as my juniors.</p></div>
+      <p class="service"><b>I also train client teams</b> to query their own data: two cohorts of 12 analysts, from SQL basics through advanced SQL and Power BI.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="method">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <p class="eyebrow">How I think</p>
+      <h2>The same five steps on every question.</h2>
+      <p>Every case follows this order. The fourth step is the one I never skip.</p>
+    </div>
+    <ol class="flow" data-reveal>
+      <li><strong>Get the real question</strong><span>Find the decision that is waiting on the answer.</span></li>
+      <li><strong>Find the control first</strong><span>A number without a baseline is not a finding.</span></li>
+      <li><strong>Check it against the source</strong><span>If two methods disagree, find out why.</span></li>
+      <li><strong>Say what it does not mean</strong><span>State the limit, so nobody over-reads it.</span></li>
+      <li><strong>End on the decision</strong><span>The deliverable is a next step, not a chart.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec" id="skills">
+  <div class="wrap">
+    <div class="cardrow">
+      <div class="pcard" data-reveal>
+        <div class="pc-top"><span class="pc-pos">Measurement</span><span class="pc-club">New York</span></div>
+        <div class="pc-name">Mahmoud Saad</div>
+        <div class="pc-role">Analytics Consultant · fifty-five</div>
+        <ul class="pc-sk">
+          <li>Incrementality and causal inference<span class="dots"><a href="#weather" aria-label="Case 1">1</a><a href="#deep-linking" aria-label="Case 2">2</a><a href="#fulfillment" aria-label="Case 3">3</a></span></li>
+          <li>Stakeholder communication<span class="dots"><a href="#weather" aria-label="Case 1">1</a><a href="#deep-linking" aria-label="Case 2">2</a><a href="#mmm" aria-label="Case 5">5</a></span></li>
+          <li>Marketing mix modeling<span class="dots"><a href="#mmm" aria-label="Case 5">5</a><a href="#now" aria-label="In progress">M</a></span></li>
+          <li>SQL and BigQuery<span class="dots"><a href="#weather" aria-label="Case 1">1</a><a href="#deep-linking" aria-label="Case 2">2</a><a href="#fulfillment" aria-label="Case 3">3</a><a href="#dashboards" aria-label="Case 4">4</a><a href="#tools" aria-label="Case 6">6</a></span></li>
+          <li>Python<span class="dots"><a href="#weather" aria-label="Case 1">1</a><a href="#fulfillment" aria-label="Case 3">3</a><a href="#code" aria-label="Project A">A</a><a href="#code" aria-label="Project B">B</a><a href="#code" aria-label="Project C">C</a></span></li>
+          <li>Dashboards and BI<span class="dots"><a href="#weather" aria-label="Case 1">1</a><a href="#dashboards" aria-label="Case 4">4</a><a href="#mmm" aria-label="Case 5">5</a><a href="#tools" aria-label="Case 6">6</a></span></li>
+          <li>Statistics and machine learning<span class="dots"><a href="#fulfillment" aria-label="Case 3">3</a><a href="#code" aria-label="Project A">A</a><a href="#code" aria-label="Project B">B</a><a href="#code" aria-label="Project C">C</a></span></li>
+        </ul>
+        <p class="pc-key">1 to 6: cases · A to C: projects with code · M: in progress</p>
+        <div class="pc-stats">
+          <div><b>3</b><span>years in marketing analytics</span></div>
+          <div><b>3</b><span>client accounts owned</span></div>
+          <div><b>7</b><span>clients my team serves</span></div>
+          <div><b>24</b><span>markets on one dashboard</span></div>
+        </div>
+      </div>
+      <div class="skills" data-reveal>
+        <p class="eyebrow">Skills</p>
+        <h2>My skills, backed by work you can open.</h2>
+        <p>I don't rate myself. Each circle on the card is a piece of work on this site that uses that skill. More circles means more proof.</p>
+        <ul class="howread">
+          <li><span><b>Tap a circle</b> to open that piece of work. The number is the case number.</span></li>
+          <li><span><b>A, B and C</b> are my code projects. <b>M</b> is the model I am working on now.</span></li>
+          <li><span><b>Top to bottom</b>, the skills are in the order job postings for these roles ask for them most.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tools" data-reveal>
+      <div class="tool"><small>Every analysis</small><h3>BigQuery and SQL</h3><p>Where the work starts. I am my team's BigQuery owner, querying millions of events across years of data.</p></div>
+      <div class="tool"><small>Dashboards</small><h3>Power BI and DAX</h3><p>From the data model to the page, including 100+ measures on one model.</p></div>
+      <div class="tool"><small>Tracking</small><h3>GA4 and Adobe Analytics</h3><p>Tracking specs, live QA and the raw event data behind every number.</p></div>
+      <div class="tool"><small>Statistics</small><h3>Python</h3><p>Charts, statistical tests and models when SQL alone is not enough.</p></div>
+    </div>
+    <div class="also" data-reveal>
+      <div><h4>Also in regular use</h4><div class="chips"><span>Looker Studio</span><span>ContentSquare</span><span>Claude agents</span></div></div>
+      <div><h4>Learning on the job</h4><div class="chips"><span>Google Meridian (marketing mix modeling)</span></div></div>
+      <div><h4>Certifications</h4><div class="chips"><span>Microsoft Power BI Data Analyst</span><span>Google Advanced Data Analytics</span><span>AWS Cloud Practitioner</span><span>Google Analytics</span><span>Google Ads Measurement</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="code">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <p class="eyebrow">Projects with code</p>
+      <h2>Three models I built on my own time.</h2>
+      <p>Client work cannot show its code. These can.</p>
+    </div>
+    <div class="code" data-reveal>
+      <a href="https://github.com/mahmoud25112/Customer_Sentiment_analysis_BERT" target="_blank" rel="noopener"><b>A · Twitter and Reddit sentiment analysis<small>Python · BERT · AWS · Docker · Streamlit</small></b><span>Fine-tuned BERT to 91% accuracy on 1.6M tweets, running on an AWS pipeline with weekly retraining and a Streamlit dashboard.</span><em>Code ↗</em></a>
+      <a href="https://github.com/jgranizo/HackNJIT2024" target="_blank" rel="noopener"><b>B · High-frequency trading model<small>Python · XGBoost · SHAP · time series</small></b><span>Won HackNJIT Best ML Project with a 74.6%-accurate time-series model for two stocks, with an explanation of what drove each prediction.</span><em>Code ↗</em></a>
+      <a href="https://datascienceportfol.io/mahmoud2511saad/projects/0" target="_blank" rel="noopener"><b>C · Hospital readmission prediction<small>Python · Random Forest · CatBoost · PCA</small></b><span>Predicted 30-day readmissions at 80% accuracy (0.75 AUC) on about 100K records from 130 hospitals.</span><em>Write-up ↗</em></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="now">
+  <div class="wrap">
+    <div class="now" data-reveal>
+      <div>
+        <span class="pill"><i></i>In progress</span>
+        <h2>A Google Meridian model for the US market.</h2>
+        <p>I am working on a marketing mix model for a client, built on Google Meridian. My part is the data: gathering it from every channel the client uses, making it consistent, and loading it into Meridian's Bayesian model.</p>
+        <p>There are no results yet. I will add them here once the model is built and validated.</p>
+      </div>
+      <ol class="pipe">
+        <li class="doing"><b>Collect data from every channel</b><em>Now</em></li>
+        <li class="doing"><b>Add behavior data from research providers</b><em>Now</em></li>
+        <li><b>Normalize it into one consistent set</b><em>Next</em></li>
+        <li><b>Load it into the Bayesian model</b><em>Next</em></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- CASE 1 -->
+<article class="case" id="weather">
+  <div class="wrap">
+    <a class="back" href="#work">← All work</a>
+    <header class="case-head" data-reveal>
+      <p class="kicker">Case 01 · Root cause · A national retailer of outdoor equipment</p>
+      <h3>Why Memorial Day sales fell</h3>
+      <p class="finding">Leadership saw a 3.3% drop and asked why. I showed the drop followed the rain.</p>
+      <p class="deliv"><b>Delivered to</b> the client's CMO, as one chart. <b>Reception:</b> the client loved how easy it was to read. What they did next is not known to me.</p>
+    </header>
+    <ol class="steps4" data-reveal>
+      <li><b>The worry</b>Holiday weekend sales were down 3.3% on last year, and nobody knew why.</li>
+      <li><b>The idea</b>This retailer sells outdoor goods, and it had rained across much of the country.</li>
+      <li><b>The test</b>Group all 51 states by one thing: more rain, the same, or less rain than last year.</li>
+      <li><b>The answer</b>Sales moved with the rain. Less rain, up 17%. More rain, down 8.2%.</li>
+    </ol>
+    <div class="case-body">
+      <div data-reveal>
+        <figure class="fig">
+          <p class="fig-title">Sales moved with the rain: up where it rained less, flat where nothing changed, down where it rained more</p>
+          <p class="fig-sub">Holiday weekend sales against last year, by change in rainfall. Same weekdays compared, not same dates.</p>
+          <div class="dv">
+            <div class="dv-row"><div class="dv-l">Less rain<small>8 states</small></div><div class="dv-t"><i class="p" style="width:53.75%"></i></div><div class="dv-v p">+17.2%</div></div>
+            <div class="dv-row"><div class="dv-l">Same rain<small>11 states · control</small></div><div class="dv-t"><i class="z"></i></div><div class="dv-v z">+0.09%</div></div>
+            <div class="dv-row"><div class="dv-l">More rain<small>32 states</small></div><div class="dv-t"><i class="n" style="width:25.6%"></i></div><div class="dv-v n">−8.2%</div></div>
+            <p class="dv-ref">Dashed line: all states, −3.3%.</p>
+          </div>
+          <p class="fig-note">The biggest cities sat in the more-rain group, which is why the national figure fell even though one group grew. Eight states is a small group.</p>
+        </figure>
+      </div>
+      <div class="side" data-reveal>
+        <div class="card"><h4>The key move</h4><p>I began with rain or no rain. Then I saw that a state with rain in both years is not a rainy state, it is an unchanged one. So I grouped by the change in rain, which gave me a built-in control.</p></div>
+        <div class="card limit"><h4>What it does not mean</h4><p>It does not prove rain caused the whole drop. It shows rain is large enough that the drop should not be read as a marketing failure.</p></div>
+      </div>
+    </div>
+    <details class="more" data-reveal>
+      <summary>Method, checks and tools</summary>
+      <div class="more-body">
+        <div><h5>Method</h5><p>GA4 sales by state, joined to public NOAA weather data, averaging the many stations in each state. Group figures are weighted by revenue.</p></div>
+        <div><h5>How I checked it</h5><p>If the pattern were noise, the unchanged group would not sit between the other two. I also tested temperature, which showed nothing, and re-cut the groups at finer thresholds.</p></div>
+        <div><h5>Tools</h5><div class="stack"><span>BigQuery</span><span>GA4</span><span>NOAA public weather data</span><span>Python</span></div></div>
+      </div>
+    </details>
+    <p class="label">Client figures anonymized: percentages are real, absolute values are left out.</p>
+  </div>
+</article>
+
+<!-- CASE 2 -->
+<article class="case" id="deep-linking">
+  <div class="wrap">
+    <a class="back" href="#work">← All work</a>
+    <header class="case-head" data-reveal>
+      <p class="kicker">Case 02 · Incrementality · A national retailer</p>
+      <h3>What iOS deep linking was worth</h3>
+      <p class="finding">iPhone shoppers got a shortcut from the search ad straight into the app. Android shoppers did not. That gave me a natural experiment.</p>
+      <p class="deliv"><b>Delivered to</b> senior stakeholders, with next steps: roll the change out to Android, and run an A/B test to replace the range with one exact figure.</p>
+    </header>
+    <ol class="steps4" data-reveal>
+      <li><b>The change</b>Deep linking was switched on for iOS search ads only.</li>
+      <li><b>The comparison</b>Same dates a year apart, iOS against Android, which never got the change.</li>
+      <li><b>The caution</b>Assume the worst: some of the gain only moved from one label to another.</li>
+      <li><b>The answer</b>Even then, the estimate is more than half of the iOS growth.</li>
+    </ol>
+    <div class="case-body">
+      <div data-reveal>
+        <figure class="fig">
+          <p class="fig-title">iOS grew more than twice as fast as Android after the change</p>
+          <p class="fig-sub">App revenue, indexed: the same 117 days a year earlier = 100. Android did not get deep linking.</p>
+          <svg class="svgc wid" viewBox="0 0 540 250" role="img" aria-label="Slope chart. Both platforms start at 100. iOS ends at 134.5, Android at 115.0, a gap of 19.5 points.">
+            <line class="gl" x1="80" y1="34" x2="80" y2="215"/><line class="gl" x1="300" y1="34" x2="300" y2="215"/>
+            <text x="80" y="22" text-anchor="middle">Year before</text><text x="300" y="22" text-anchor="middle">After the change</text>
+            <path class="ln-b" pathLength="1" d="M80 193.9L300 130.6"/><path class="ln-a" pathLength="1" d="M80 193.9L300 48.2"/>
+            <circle class="d-k" cx="80" cy="193.9" r="5"/><circle class="d-b" cx="300" cy="130.6" r="5"/><circle class="d-a" cx="300" cy="48.2" r="6"/>
+            <text class="k" x="68" y="198.500" text-anchor="end">100</text>
+            <text class="a" x="313" y="53">iOS 134.5</text><text class="k" x="313" y="135.500">Android 115.0</text>
+            <path class="br" d="M424 48.2H432V130.6H424"/>
+            <text class="k" x="441" y="86">19.5-point</text><text class="k" x="441" y="103">gap</text>
+          </svg>
+          <svg class="svgc nar" viewBox="0 0 276 228" role="img" aria-label="Slope chart. Both platforms start at 100. iOS ends at 134.5, Android at 115.0, a gap of 19.5 points.">
+            <line class="gl" x1="44" y1="34" x2="44" y2="215"/><line class="gl" x1="148" y1="34" x2="148" y2="215"/>
+            <text x="44" y="22" text-anchor="middle">Year before</text><text x="148" y="22" text-anchor="middle">After the change</text>
+            <path class="ln-b" pathLength="1" d="M44 193.9L148 130.6"/><path class="ln-a" pathLength="1" d="M44 193.9L148 48.2"/>
+            <circle class="d-k" cx="44" cy="193.9" r="5"/><circle class="d-b" cx="148" cy="130.6" r="5"/><circle class="d-a" cx="148" cy="48.2" r="6"/>
+            <text class="k" x="33" y="198.500" text-anchor="end">100</text>
+            <text class="a" x="161" y="53">iOS 134.5</text><text class="k" x="161" y="135.500">Android 115.0</text>
+            <path class="br" d="M260 48.2H268V130.6H260"/>
+            <text class="k" x="254" y="86" text-anchor="end">19.5-point</text><text class="k" x="254" y="103" text-anchor="end">gap</text>
+          </svg>
+        </figure>
+        <figure class="fig">
+          <p class="fig-title">The estimate: between about half and all of that iOS growth came from deep linking</p>
+          <p class="fig-sub">A range, from the most cautious reading to the most generous.</p>
+          <div class="range">
+            <span class="rl a"><b>54%</b></span><span class="rl b"><b>118%</b></span>
+            <div class="rtrack"><div class="rband"></div><div class="rtick"></div></div>
+            <span class="rl d">0%</span><span class="rl c">100% = all of the iOS growth</span><span class="rl e">150%</span>
+          </div>
+          <p class="fig-note">The top of the range is above 100% because the rest of iOS revenue dipped, so the search-ad gain was larger than iOS's total growth.</p>
+        </figure>
+        <figure class="fig">
+          <p class="fig-title">Search ads went from about 1 in 77 dollars of iOS app revenue to nearly 1 in 3</p>
+          <div class="share">
+            <div><span>Year before</span><u><i style="width:1.3%"></i></u><b>1.3%</b></div>
+            <div><span>After</span><u><i style="width:31.3%"></i></u><b>31.3%</b></div>
+          </div>
+        </figure>
+      </div>
+      <div class="side" data-reveal>
+        <div class="card"><h4>Why I trust it</h4><p>iOS search-ad visits grew 36 times while the share of visits that bought stayed stable. If the shortcut were only re-routing people already about to buy, that share would have jumped. Web search-ad revenue also grew 58%, so nothing was taken from the website.</p></div>
+        <div class="card limit"><h4>What it does not mean</h4><p>The 34.5% is total iOS growth, not what deep linking caused. Android is a control, not a randomized test, so the honest answer is a range and not one number.</p></div>
+      </div>
+    </div>
+    <details class="more" data-reveal>
+      <summary>Method, checks and tools</summary>
+      <div class="more-body">
+        <div><h5>The cautious end of the range</h5><p>I assumed the rest of iOS would have grown at Android's rate without the change, and subtracted the shortfall as revenue that only changed labels.</p></div>
+        <div><h5>Why a year apart</h5><p>Comparing the same dates a year apart removes seasonality. GA4 was used so every traffic source was counted, not only paid.</p></div>
+        <div><h5>Tools</h5><div class="stack"><span>GA4</span><span>BigQuery</span><span>Quasi-experimental design</span></div></div>
+      </div>
+    </details>
+    <p class="label">Client figures anonymized: percentages are real, revenue is indexed (year before = 100).</p>
+  </div>
+</article>
+
+<!-- CASE 3 -->
+<article class="case" id="fulfillment">
+  <div class="wrap">
+    <a class="back" href="#work">← All work</a>
+    <header class="case-head" data-reveal>
+      <p class="kicker">Case 03 · Matched comparison · A national retailer</p>
+      <h3>Shared warehouse vs standalone stores</h3>
+      <p class="finding">Stores that ship from a shared warehouse can sell everything on the website. Standalone stores often show "not available in this store." I measured what that costs.</p>
+      <p class="deliv"><b>Delivered to</b> the client, as the answer to their question: yes, these stores sell more, and the gap sits at add to cart, not at checkout.</p>
+    </header>
+    <ol class="steps4" data-reveal>
+      <li><b>The claim</b>Stores with a shared warehouse sell more online. True, or just more items in carts?</li>
+      <li><b>The fair fight</b>Match the two groups by state, store size and number of shoppers.</li>
+      <li><b>The funnel</b>Compare every step, from viewing a product to paying.</li>
+      <li><b>The answer</b>One step differs: adding to cart, 18% higher. Everything else is level.</li>
+    </ol>
+    <div class="case-body wide">
+      <div data-reveal>
+        <figure class="fig">
+          <p class="fig-title">Same browsing, same checkout. Shared-warehouse stores win one step: adding to cart (+18%)</p>
+          <p class="fig-sub">Step conversion, shared-warehouse vs standalone stores, one quarter, several hundred matched stores per group. Each rate is measured over the step before.</p>
+          <div class="sc">
+            <div class="sc-head"><span>Funnel step</span><span>Rate, <b>shared</b> vs standalone</span><span class="sc-axis"><i style="left:0">−10%</i><i style="left:33.333%">0</i><i style="left:66.667%">+10%</i><i style="left:100%">+20%</i></span><span></span></div>
+            <div class="sc-row"><div class="sc-l">Visit → product page</div><div class="sc-r"><b>66.5%</b> vs 68.5%</div><div class="sc-t"><i class="n" style="width:9.67%"></i></div><div class="sc-v">−2.9%</div></div>
+            <div class="sc-row hl"><div class="sc-l">Product page → cart</div><div class="sc-r"><b>6.80%</b> vs 5.75%</div><div class="sc-t"><i class="p" style="width:60.67%"></i></div><div class="sc-v">+18.2%</div><p class="sc-ann">Out of every 1,000 visits, 45 reach the cart against 39.</p></div>
+            <div class="sc-row"><div class="sc-l">Cart → checkout</div><div class="sc-r"><b>39.0%</b> vs 38.2%</div><div class="sc-t"><i class="p" style="width:7.67%"></i></div><div class="sc-v">+2.3%</div></div>
+            <div class="sc-row"><div class="sc-l">Checkout → purchase</div><div class="sc-r"><b>68.9%</b> vs 68.3%</div><div class="sc-t"><i class="p" style="width:3%"></i></div><div class="sc-v">+0.9%</div></div>
+          </div>
+          <p class="fig-note">Bars show the gap between the two groups at each step, all on one scale. The grey band marks "about level" (within 5%). It is a reading aid, not a statistical test.</p>
+        </figure>
+        <div class="stats">
+          <div class="stat"><b>12 vs 10</b><span>purchases per 1,000 visits, rounded (1.21% vs 1.03%, a gap of 18.4%)</span></div>
+          <div class="stat"><b>+19%</b><span>revenue per visit</span></div>
+          <div class="stat"><b>Same</b><span>order size, within 0.3%</span></div>
+        </div>
+      </div>
+      <div class="side" data-reveal>
+        <div class="card"><h4>Why it matters</h4><p>Same browsing at the top, same checkout at the bottom, same basket size. The whole gap sits at the one step where the "not available" message appears. That is a specific, fixable loss.</p></div>
+        <div class="card limit"><h4>What it does not mean</h4><p>It is not a randomized experiment. Stores were chosen for a shared warehouse for reasons the data cannot see. It covers one peak-season quarter and should not be multiplied into a yearly figure.</p></div>
+      </div>
+    </div>
+    <details class="more" data-reveal>
+      <summary>Method, checks and tools</summary>
+      <div class="more-body">
+        <div><h5>The match</h5><p>The same number of stores per state across the top 20 states, a similar size profile, at least 1,000 users per store. Traffic came out within 0.4% without being matched on.</p></div>
+        <div><h5>How I checked it</h5><p>Tested per store, not per visit, because the stores are what differ: Mann-Whitney test, p &lt; 0.0001 for both conversion and revenue per user. The shared-warehouse group led in all 12 complete weeks.</p></div>
+        <div><h5>A bug I caught first</h5><p>Store IDs were written differently in two sources, which had put 19 shared-warehouse stores in the wrong group. I fixed the join and added a check that must return zero rows before the analysis runs.</p></div>
+        <div><h5>Tools</h5><div class="stack"><span>BigQuery</span><span>ContentSquare</span><span>Python</span><span>Mann-Whitney test</span></div></div>
+      </div>
+    </details>
+    <p class="label">Client figures anonymized: rates are real, revenue is indexed (standalone = 100, shared warehouse = 118.5), volumes are shown per 1,000 visits.</p>
+  </div>
+</article>
+
+<!-- CASE 4 -->
+<article class="case" id="dashboards">
+  <div class="wrap">
+    <a class="back" href="#work">← All work</a>
+    <header class="case-head" data-reveal>
+      <p class="kicker">Case 04 · Dashboards · A global luxury retailer</p>
+      <h3>Dashboards built for leadership</h3>
+      <p class="finding">During the holidays, a sales problem found in next week's report is a week too late. I built the view that shows it within the hour, across 21 markets.</p>
+      <p class="deliv"><b>Delivered to</b> the client's leadership: published, with a walkthrough prepared for directors and analysts.</p>
+    </header>
+    <ol class="steps4" data-reveal>
+      <li><b>The need</b>Are online sales on track today, and against last year, in time to act today?</li>
+      <li><b>The rules</b>Same hours on every comparison. Same weekday last year. The cutoff comes from the data, never the clock.</li>
+      <li><b>The build</b>History held in memory, only the last 7 days read live. Fast and still current.</li>
+      <li><b>The proof</b>Every number matched an independent query on the source, revenue to the cent.</li>
+    </ol>
+    <figure class="fig dash" id="dash">
+      <div class="dhead">
+        <div><span class="dbrand">NORDHAVN &amp; CO.</span><span class="dbadge">Made-up brand and numbers</span></div>
+        <div class="dctl">
+          <div class="seg" role="group" aria-label="Dashboard page"><button type="button" data-page="1" aria-pressed="true">Holiday overview</button><button type="button" data-page="2" aria-pressed="false">Today by hour</button></div>
+          <label class="vh" for="d-market">Market</label><select id="d-market" class="dsel"></select>
+        </div>
+      </div>
+      <div class="dbody" id="dp1">
+        <div class="dgrid">
+          <div>
+            <h4 class="dh">At a glance</h4>
+            <div class="scroll"><div class="kpi" id="d-kpi"></div></div>
+            <div class="dsub"><span id="d-bt">Revenue by day, last 14 days</span>
+              <div class="seg" role="group" aria-label="Show chart and table by"><button type="button" data-m="o" aria-pressed="false">Orders</button><button type="button" data-m="r" aria-pressed="true">Revenue</button></div></div>
+            <div class="legend" style="margin-top:8px"><span><i style="background:var(--dash);border-radius:2px"></i>Above last year</span><span><i style="background:var(--base);border-radius:2px"></i>Below last year</span><span>- - 13-day average</span></div>
+            <div class="dbars" id="d-bars"></div>
+            <div class="dax" id="d-ax"></div>
+            <p class="dread" id="d-read"></p>
+          </div>
+          <div>
+            <h4 class="dh">Hour by day</h4>
+            <div class="scroll"><table class="heat" id="d-heat"></table></div>
+          </div>
+        </div>
+      </div>
+      <div class="dbody" id="dp2" hidden>
+        <div class="dgrid">
+          <div>
+            <h4 class="dh">Today, hour by hour</h4>
+            <p class="dfresh" id="d-fresh"></p>
+            <div class="tiles3" id="d-tiles"></div>
+            <div class="scroll"><svg class="dline" id="d-line" viewBox="0 0 640 250" role="img" aria-label="Revenue by hour for today, yesterday, last week and last year"></svg></div>
+            <div class="legend"><span><i style="background:var(--dash)"></i>Today</span><span>- - Yesterday</span><span>· · Last week</span><span><i style="background:color-mix(in srgb,var(--dash) 45%,var(--paper))"></i>Last year</span></div>
+            <p class="dread" id="d-lread"></p>
+          </div>
+          <div>
+            <h4 class="dh">Performance, by market</h4>
+            <div class="scroll"><table class="mk" id="d-mk"></table></div>
+          </div>
+        </div>
+      </div>
+      <p class="dfoot">A working copy of the real dashboard's layout and logic, rebuilt for this page. Every number is generated and the brand does not exist. Switch pages, pick a market, or tap a bar.</p>
+    </figure>
+    <ol class="notes" data-reveal>
+      <li><b>Same hours, always.</b> At 2 PM, today is compared with yesterday up to 2 PM, never with all of yesterday.</li>
+      <li><b>Today stops at the last complete hour.</b> A half-loaded hour never looks like a crash.</li>
+      <li><b>Blank, not minus 100%.</b> A market that is new this year shows no last-year figure instead of a false drop.</li>
+    </ol>
+    <div class="case-body">
+      <div data-reveal>
+        <div class="stiles">
+          <div class="stile"><b>42 s → <em>14 s</em></b><span>Page one load time, 3 times faster after one rewrite. Every number stayed identical.</span></div>
+          <div class="stile"><b>24.6 s → <em>5.5 s</em></b><span>The slowest query, about 4.5 times faster.</span></div>
+        </div>
+        <figure class="fig">
+          <p class="fig-title">The second dashboard: one set of definitions, now covering 24 markets</p>
+          <p class="fig-sub">Every team had defined conversion rate differently, so markets could not be compared. With the client's team, we wrote one set of definitions and I built on that. It started with the APAC sites and became the global dashboard.</p>
+        </figure>
+      </div>
+      <div class="side" data-reveal>
+        <div class="card"><h4>How it was checked</h4><p>All 16 page-one numbers, every page-two tile and all 21 markets matched an independent query on the source. Against the raw data export, 27 of 27 complete days matched exactly in every market.</p></div>
+        <div class="card limit"><h4>What it does not mean</h4><p>Refreshed every 30 minutes on complete hours is not a live feed. It shows website revenue only, before returns.</p></div>
+      </div>
+    </div>
+    <details class="more" data-reveal>
+      <summary>Method, checks and tools</summary>
+      <div class="more-body">
+        <div><h5>Why it is fast</h5><p>One hour counter sits behind every time window, so "last 24 hours" or "holiday period" is a single range, not a long list of dates and hours.</p></div>
+        <div><h5>On the global dashboard</h5><p>A 12-check test suite must pass before any data load ships. Separately, I caught a shortcut that undercounted one market's active users by 75% to 87%.</p></div>
+        <div><h5>Tools</h5><div class="stack"><span>BigQuery</span><span>GA4</span><span>Power BI</span><span>DAX</span><span>DirectQuery</span></div></div>
+      </div>
+    </details>
+    <p class="label">No client figures are shown. Speeds, counts and percentages are real. The demo's numbers are generated.</p>
+  </div>
+</article>
+
+<!-- CASE 5 -->
+<article class="case" id="mmm">
+  <div class="wrap">
+    <a class="back" href="#work">← All work</a>
+    <header class="case-head" data-reveal>
+      <p class="kicker">Case 05 · Marketing mix modeling · A consumer electronics brand</p>
+      <h3>A readout tool that helped win a project</h3>
+      <p class="finding">A marketing mix model tells you what each channel returned. The useful question is different: what will the next dollar return? I built a tool that answers it.</p>
+      <p class="deliv"><b>Delivered to</b> the client, as part of a proposal. <b>Outcome:</b> the client was drawn to the tool itself, and the consultancy won the project.</p>
+    </header>
+    <ol class="steps4" data-reveal>
+      <li><b>The problem</b>Model results arrive as tables. The people who move the budget cannot read them.</li>
+      <li><b>The idea</b>Show each channel's average return next to the return on its next dollar.</li>
+      <li><b>The tool</b>Three pages: results, saturation curves and a budget planner, with a guided tour.</li>
+      <li><b>The outcome</b>It helped win the project. The model is now being built to feed it.</li>
+    </ol>
+    <div class="case-body">
+      <div data-reveal>
+        <figure class="fig">
+          <p class="fig-title">A channel can look profitable on average while its next dollar barely pays back</p>
+          <p class="fig-sub">One channel's response curve. Illustrative.</p>
+          <svg class="svgc wid" viewBox="0 0 560 330" role="img" aria-label="A curve of sales against spend that rises steeply and then flattens. At today's spend, the average return is steep while the return on the next dollar is nearly flat.">
+            <path class="ax" d="M56 24V280H540"/>
+            <path class="avg" d="M56 280L404.5 55.2"/>
+            <path class="curve" pathLength="1" d="M56.0 280.0L60.8 279.2L65.7 277.3L70.5 274.6L75.4 271.3L80.2 267.5L85.0 263.2L89.9 258.6L94.7 253.7L99.6 248.5L104.4 243.1L109.2 237.6L114.1 232.1L118.9 226.4L123.8 220.8L128.6 215.2L133.4 209.6L138.3 204.0L143.1 198.6L148.0 193.2L152.8 187.9L157.6 182.8L162.5 177.7L167.3 172.8L172.2 168.1L177.0 163.4L181.8 158.9L186.7 154.5L191.5 150.3L196.4 146.2L201.2 142.2L206.0 138.4L210.9 134.7L215.7 131.1L220.6 127.6L225.4 124.3L230.2 121.1L235.1 117.9L239.9 114.9L244.8 112.0L249.6 109.2L254.4 106.5L259.3 103.9L264.1 101.4L269.0 98.9L273.8 96.6L278.6 94.3L283.5 92.1L288.3 90.0L293.2 87.9L298.0 85.9L302.8 84.0L307.7 82.2L312.5 80.4L317.4 78.6L322.2 76.9L327.0 75.3L331.9 73.8L336.7 72.2L341.6 70.8L346.4 69.3L351.2 67.9L356.1 66.6L360.9 65.3L365.8 64.0L370.6 62.8L375.4 61.6L380.3 60.5L385.1 59.4L390.0 58.3L394.8 57.2L399.6 56.2L404.5 55.2L409.3 54.3L414.2 53.3L419.0 52.4L423.8 51.5L428.7 50.7L433.5 49.8L438.4 49.0L443.2 48.2L448.0 47.5L452.9 46.7L457.7 46.0L462.6 45.3L467.4 44.6L472.2 43.9L477.1 43.2L481.9 42.6L486.8 42.0L491.6 41.4L496.4 40.8L501.3 40.2L506.1 39.6L511.0 39.1L515.8 38.5L520.6 38.0L525.5 37.5L530.3 37.0L535.2 36.5L540.0 36.0"/>
+            <path class="tan" d="M341.6 67.9L467.4 42.5"/>
+            <circle class="dot" cx="404.5" cy="55.2" r="7"/>
+            <text x="56" y="312">Spend on the channel</text>
+            <text x="20" y="152" text-anchor="middle" transform="rotate(-90 20 152)">Sales it drives</text>
+            <text class="a" x="404.5" y="35.2" text-anchor="middle">Next $1: slope here (weak)</text>
+            <text class="k" x="392" y="196" text-anchor="middle">Average: slope of the</text><text class="k" x="392" y="213" text-anchor="middle">dashed line (strong)</text>
+            <text x="404.5" y="298" text-anchor="middle">Spend today</text>
+          </svg>
+          <svg class="svgc nar" viewBox="0 0 300 280" role="img" aria-label="A curve of sales against spend that rises steeply and then flattens. At today's spend, the average return is steep while the return on the next dollar is nearly flat.">
+            <path class="ax" d="M34 20V232H292"/>
+            <path class="avg" d="M34 232L219.8 62.5"/>
+            <path class="curve" pathLength="1" d="M34.0 232.0L36.6 231.4L39.2 229.9L41.7 227.9L44.3 225.5L46.9 222.6L49.5 219.4L52.1 215.9L54.6 212.1L57.2 208.2L59.8 204.2L62.4 200.1L65.0 195.9L67.5 191.6L70.1 187.4L72.7 183.1L75.3 178.9L77.9 174.7L80.4 170.6L83.0 166.5L85.6 162.6L88.2 158.7L90.8 154.9L93.3 151.2L95.9 147.6L98.5 144.1L101.1 140.7L103.7 137.4L106.2 134.2L108.8 131.1L111.4 128.1L114.0 125.2L116.6 122.4L119.1 119.7L121.7 117.1L124.3 114.6L126.9 112.1L129.5 109.8L132.0 107.5L134.6 105.3L137.2 103.2L139.8 101.2L142.4 99.2L144.9 97.3L147.5 95.4L150.1 93.7L152.7 92.0L155.3 90.3L157.8 88.7L160.4 87.1L163.0 85.6L165.6 84.2L168.2 82.8L170.7 81.5L173.3 80.1L175.9 78.9L178.5 77.7L181.1 76.5L183.6 75.3L186.2 74.2L188.8 73.1L191.4 72.1L194.0 71.1L196.5 70.1L199.1 69.2L201.7 68.2L204.3 67.3L206.9 66.5L209.4 65.6L212.0 64.8L214.6 64.0L217.2 63.2L219.8 62.5L222.3 61.8L224.9 61.1L227.5 60.4L230.1 59.7L232.7 59.1L235.2 58.4L237.8 57.8L240.4 57.2L243.0 56.6L245.6 56.1L248.1 55.5L250.7 55.0L253.3 54.5L255.9 54.0L258.5 53.5L261.0 53.0L263.6 52.5L266.2 52.0L268.8 51.6L271.4 51.2L273.9 50.7L276.5 50.3L279.1 49.9L281.7 49.5L284.3 49.1L286.8 48.7L289.4 48.4L292.0 48.0"/>
+            <path class="tan" d="M186.2 72.1L253.3 52.9"/>
+            <circle class="dot" cx="219.8" cy="62.5" r="7"/>
+            <text x="34" y="270">Spend on the channel</text>
+            <text x="14" y="126" text-anchor="middle" transform="rotate(-90 14 126)">Sales it drives</text>
+            <text class="a" x="296" y="34.5" text-anchor="end">Next $1: slope here (weak)</text>
+            <text class="k" x="222" y="160" text-anchor="middle">Average: slope of the</text><text class="k" x="222" y="177" text-anchor="middle">dashed line (strong)</text>
+            <text x="219.8" y="250" text-anchor="middle">Spend today</text>
+          </svg>
+        </figure>
+        <figure class="fig">
+          <p class="fig-title">Ranked by the next dollar, the order changes</p>
+          <p class="fig-sub">Sales per $1: average so far (grey) and the next dollar (colour). Illustrative numbers from the demo.</p>
+          <div class="db">
+            <div class="db-row"><span class="db-l">TV</span><span class="db-t"><i class="ln" style="left:25.7%;width:4.3%"></i><i class="a" style="left:25.7%"></i><i class="m" style="left:30%"></i></span><span class="db-v">1.8 → <b>2.1</b></span></div>
+            <div class="db-row"><span class="db-l">YouTube</span><span class="db-t"><i class="ln" style="left:25.7%;width:11.4%"></i><i class="a" style="left:37.1%"></i><i class="m" style="left:25.7%"></i></span><span class="db-v">2.6 → <b>1.8</b></span></div>
+            <div class="db-row"><span class="db-l">Search, brand</span><span class="db-t"><i class="ln" style="left:20%;width:72.9%"></i><i class="a" style="left:92.9%"></i><i class="m" style="left:20%"></i></span><span class="db-v">6.5 → <b>1.4</b></span></div>
+            <div class="db-row"><span class="db-l">Performance Max</span><span class="db-t"><i class="ln" style="left:8.6%;width:50%"></i><i class="a" style="left:58.6%"></i><i class="m" style="left:8.6%"></i></span><span class="db-v">4.1 → <b>0.6</b></span></div>
+            <div class="db-row"><span class="db-l">Programmatic</span><span class="db-t"><i class="ln" style="left:7.1%;width:12.9%"></i><i class="a" style="left:20%"></i><i class="m" style="left:7.1%"></i></span><span class="db-v">1.4 → <b>0.5</b></span></div>
+          </div>
+          <div class="legend"><span><i style="background:var(--base)"></i>Average so far</span><span><i style="background:var(--accent)"></i>Next dollar</span><span>Black line: break-even, 1.0</span></div>
+        </figure>
+      </div>
+      <div class="side" data-reveal>
+        <div class="card"><h4>Try it</h4><p>The tool runs on illustrative data for Beetles, a made-up audio brand. Open the planner, set a goal, and it recommends a budget split.</p><p><a class="btn" href="../tools/mmm-readout/" target="_blank" rel="noopener">Open the demo ↗</a></p></div>
+        <div class="card limit"><h4>What it does not mean</h4><p>The tool reads a model's results. It is not the model, I did not build the model, and every number in it is illustrative.</p></div>
+      </div>
+    </div>
+    <details class="more" data-reveal>
+      <summary>Method, checks and tools</summary>
+      <div class="more-body">
+        <div><h5>The curve</h5><p>Each channel follows a saturation curve solved from three inputs: current spend, the return at that spend, and the return on the next dollar.</p><p class="formula">f(x) = K · x^s / (h^s + x^s)</p></div>
+        <div><h5>How I checked it</h5><p>Each curve reproduces its channel's three inputs exactly. The planner reads the same curves as the saturation page, so a budget move and its effect always agree.</p></div>
+        <div><h5>Guided tour</h5><p>One button walks a newcomer through all three pages. It explains one number at a time, spotlights it, and dims the rest.</p></div>
+        <div><h5>Tools</h5><div class="stack"><span>JavaScript</span><span>Hand-drawn charts, no library</span><span>One self-contained file</span></div></div>
+      </div>
+    </details>
+    <p class="label">Every number in this case is illustrative. No client results are shown.</p>
+  </div>
+</article>
+
+<!-- CASE 6 -->
+<article class="case" id="tools">
+  <div class="wrap">
+    <a class="back" href="#work">← All work</a>
+    <header class="case-head" data-reveal>
+      <p class="kicker">Case 06 · Automation · Built for my own team</p>
+      <h3>Internal tools, and what they bought</h3>
+      <p class="finding">I still design and build every dashboard myself. These tools remove the slow parts around that work.</p>
+      <p class="deliv"><b>Used by</b> my team. I showed the mock-up workflow to a colleague, and it has now been used on at least five dashboards.</p>
+    </header>
+    <ol class="steps4" data-reveal>
+      <li><b>The drag</b>One dashboard took about two working days to build.</li>
+      <li><b>The insight</b>Once the questions are agreed with the client, the best chart for each one is knowable.</li>
+      <li><b>The workflow</b>About an hour with the client's team, then under an hour ranking and drafting charts. An agent turns that into a mock-up, and the mock-up drives the build.</li>
+      <li><b>The result</b>About one hour per build instead of sixteen, with the same deliverables.</li>
+    </ol>
+    <div class="case-body">
+      <div data-reveal>
+        <div class="stiles">
+          <div class="stile"><b>16 h → <em>about 1 h</em></b><span>Time to build one dashboard with the mock-up workflow. Same quality, same deliverables.</span></div>
+          <div class="stile"><b>5+</b><span>Dashboards built this way so far. Clients liked the mock-ups because they were fast and showed we had listened.</span></div>
+        </div>
+        <figure class="fig">
+          <p class="fig-title">Two agents and one shared document keep a build in step</p>
+          <p class="fig-sub">The judgment stays with me. The typing does not.</p>
+          <div class="agents">
+            <div class="node me"><b>Me</b><span>The plan, the definitions, the checks</span></div>
+            <div class="node"><b>SQL agent</b><span>Queries and data tables</span></div>
+            <div class="node"><b>Dashboard agent</b><span>Measures and layout</span></div>
+            <div class="node doc"><b>One shared document</b><span>The single source of truth both agents read</span></div>
+          </div>
+        </figure>
+      </div>
+      <div class="side" data-reveal>
+        <div class="card"><h4>Also built: a release monitor</h4><p>A template any teammate can point at a client website. It compares every health metric with three baselines at once. After two tracking launches it flagged a surge of bot traffic, and our team was first to raise it.</p></div>
+        <div class="card limit"><h4>What it does not mean</h4><p>These are not AI-generated dashboards. The definitions, the design and the checks are mine, and a person reviews everything the monitor flags.</p></div>
+      </div>
+    </div>
+    <details class="more" data-reveal>
+      <summary>More on each tool</summary>
+      <div class="more-body">
+        <div><h5>The release monitor</h5><p>It compares each metric with yesterday, the same weekday last week and a 3-day average, all cut to the same complete hours, so a half-finished day never looks like a drop.</p></div>
+        <div><h5>The pre-release checker</h5><p>An agent runs a fixed set of validation queries before each website release. Across its first three releases for four clients it caught one real problem, caused by bot traffic.</p></div>
+        <div><h5>Tools</h5><div class="stack"><span>Claude</span><span>BigQuery</span><span>GA4</span><span>Power BI</span><span>Looker Studio</span></div></div>
+      </div>
+    </details>
+    <p class="label">Every figure in this case is my own work and is real.</p>
+  </div>
+</article>
+
+<section class="contact-sec" id="contact">
+  <div class="wrap">
+    <div class="contact" data-reveal>
+      <p class="eyebrow">Contact</p>
+      <h2>Let's talk measurement.</h2>
+      <p>I am looking for measurement and data science roles on marketing, growth or product teams, in New York, New Jersey or remote.</p>
+      <div class="cta">
+        <a class="btn primary" href="mailto:mahmoud2511.saad@gmail.com?subject=Hello%20from%20your%20portfolio">Email me</a>
+        <a class="btn" href="https://www.linkedin.com/in/mahmoud-saad-617876254/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn" href="https://github.com/mahmoud25112" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn" href="https://mahmoud25112.github.io/Mahmoud_Saad_Resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
+      </div>
+      <p class="mail">mahmoud2511.saad@gmail.com</p>
+      <p class="quiet">I also take a small number of independent consulting engagements.</p>
+    </div>
+    <footer>Mahmoud Saad · New York. Client figures on this site are anonymized: percentages are real, absolute values are indexed or left out.</footer>
+  </div>
+</section>
+
+</main>
+
+<script>
+(function(){
+  var H=document.documentElement, CASES=['weather','deep-linking','fulfillment','dashboards','mmm','tools'];
+  H.classList.add('js');
+  function el(id){ return document.getElementById(id); }
+  /* case pages: prev and next links */
+  CASES.forEach(function(id,i){
+    var c=el(id); if(!c) return;
+    var p=CASES[(i+5)%6], n=CASES[(i+1)%6];
+    function t(x){ return el(x).querySelector('h3').textContent; }
+    var nav=document.createElement('nav'); nav.className='casenav'; nav.setAttribute('aria-label','More cases');
+    nav.innerHTML='<a href="#'+p+'"><small>← Previous case</small>'+t(p)+'</a><a href="#'+n+'" style="text-align:right"><small>Next case →</small>'+t(n)+'</a>';
+    c.querySelector('.wrap').appendChild(nav);
+  });
+  function route(first){
+    var h=(location.hash||'').slice(1), i=CASES.indexOf(h);
+    H.classList.toggle('in-case',i>-1);
+    CASES.forEach(function(id){ el(id).classList.toggle('active',id===h); });
+    if(i>-1){ window.scrollTo(0,0); }
+    else if(h&&el(h)){ requestAnimationFrame(function(){ el(h).scrollIntoView(); }); }
+    else if(!first){ window.scrollTo(0,0); }
+  }
+  window.addEventListener('hashchange',function(){ route(false); }); route(true);
+  /* reveal */
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); },{threshold:.1});
+    document.querySelectorAll('[data-reveal]').forEach(function(x){ io.observe(x); });
+  }
+})();
+</script>
+<script>
+(function(){
+  var root=document.getElementById('dash'); if(!root) return;
+  function $(id){ return document.getElementById(id); }
+  var seed=11;
+  function R(){ seed=seed+0x6D2B79F5|0; var t=Math.imul(seed^seed>>>15,1|seed); t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296; }
+  var SH=[.34,.3,.26,.2,.19,.28,.44,.5,.6,.72,.8,.96,.86,.82,.9,.8,.7,.68,.6,.56,.58,.6,.5,.42];
+  var MK=[['United States',.5,185,1],['United Kingdom',.12,210,1],['Japan',.1,150,1],['Germany',.08,240,1],['France',.06,225,1],['Italy',.05,195,1],['Australia',.05,170,0],['South Korea',.04,260,0]];
+  var D=16,L=15,H=14,K=L*24+H;
+  var WD=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'], DF=[1.02,1.1,1.12,1.16,1,.86,.8];
+  function dt(d){ return new Date(2026,10,5-(L-d)); }
+  function lab(d){ var x=dt(d); return WD[x.getDay()]+' '+x.getDate(); }
+  function hr(h){ return (h%12||12)+(h<12?' AM':' PM'); }
+  function gen(mult){ return MK.map(function(m){ var a=[]; for(var d=0;d<D;d++){ var f=DF[dt(d).getDay()]*(0.92+d*0.01);
+    for(var h=0;h<24;h++){ var lam=42*SH[h]*f*m[1]*mult, o=Math.round(lam*(0.35+1.3*R())), r=o*m[2]*(0.75+0.5*R());
+      var s=Math.round(2600*SH[h]*f*m[1]*mult*(0.85+0.3*R())); a.push({r:r,o:o,s:s,a:Math.round(s*(0.021+0.012*R()))}); } } return a; }); }
+  var T=gen(1), LY=gen(1.01); MK.forEach(function(m,i){ if(!m[3]) LY[i]=null; });
+  var ALL=MK.map(function(_,i){ return i; }), ms=ALL, metric='r';
+  function S(src,key,a,b,set){ var t=0,any=false; (set||ms).forEach(function(i){ var arr=src[i]; if(!arr) return; any=true; for(var k=a;k<=b;k++) t+=arr[k][key]; }); return any?t:null; }
+  function val(src,key,a,b){ if(key==='aov'){ var o=S(src,'o',a,b); return o?S(src,'r',a,b)/o:null; } if(key==='ca'){ var s=S(src,'s',a,b); return s?S(src,'a',a,b)/s:null; } return S(src,key,a,b); }
+  function money(v){ return v>=1e6?'$'+(v/1e6).toFixed(2)+'M':v>=1e4?'$'+Math.round(v/1e3)+'K':'$'+Math.round(v).toLocaleString('en-US'); }
+  function num(v){ return Math.round(v).toLocaleString('en-US'); }
+  function show(v,key){ if(v==null) return '&ndash;'; return key==='ca'?(v*100).toFixed(2)+'%':key==='o'?num(v):key==='aov'?'$'+v.toFixed(2):money(v); }
+  function arrow(p,good,txt){ return '<span class="'+(good?'up':'dn')+'">'+(p>=0?'&#9650;':'&#9660;')+' '+txt+'</span>'; }
+  function cmp(a,b,key,tail){ tail=tail||''; if(a==null||b==null||!b) return '<span class="dn">no comparison'+tail+'</span>';
+    if(key==='ca'){ var d=(a-b)*100; return arrow(d,d<0,Math.abs(d).toFixed(2)+' pp'+tail); }
+    var p=(a-b)/b*100; return arrow(p,p>=0,Math.abs(p).toFixed(1)+'%'+tail); }
+
+  function kpi(){
+    var cols=[['Last hour','vs same hour yesterday',K,K,K-24,K-24,T],['Last 24 hours','vs prior 24 hours',K-23,K,K-47,K-24,T],['Last 7 days','vs prior 7 days',K-167,K,K-335,K-168,T],['Holiday period','vs same weekdays last year',72,K,72,K,LY]];
+    var rows=[['Revenue','r'],['Orders','o'],['Avg order value','aov'],['Cart abandonment','ca']];
+    var h='<span></span>'+cols.map(function(c){ return '<div class="ch">'+c[0]+'<small>'+c[1]+'</small></div>'; }).join('');
+    rows.forEach(function(rw,ri){ h+='<div class="rh">'+rw[0]+'</div>';
+      cols.forEach(function(c){ var cur=val(T,rw[1],c[2],c[3]), prev=val(c[6],rw[1],c[4],c[5]); h+='<div class="kc'+(ri===0?' big':'')+'"><b>'+show(cur,rw[1])+'</b>'+cmp(cur,prev,rw[1])+'</div>'; }); });
+    $('d-kpi').innerHTML=h;
+  }
+  var barVals=[];
+  function bars(){
+    barVals=[]; for(var d=L-13;d<=L;d++){ var e=d===L?H:23; barVals.push({d:d,v:S(T,metric,d*24,d*24+e),ly:S(LY,metric,d*24,d*24+e)}); }
+    var mx=Math.max.apply(null,barVals.map(function(x){ return Math.max(x.v,x.ly||0); }))||1;
+    var avg=barVals.slice(0,13).reduce(function(t,x){ return t+x.v; },0)/13, h='', ax='';
+    barVals.forEach(function(x,i){ var cls=x.ly==null?'nl':x.v>=x.ly?'ab':''; h+='<button type="button" class="'+cls+'" data-i="'+i+'" style="height:'+(x.v/mx*100).toFixed(1)+'%" aria-label="'+lab(x.d)+'"></button>';
+      var w=dt(x.d); ax+='<span>'+WD[w.getDay()].slice(0,2)+'<br>'+w.getDate()+'</span>'; });
+    $('d-bars').innerHTML=h+'<div class="davg" style="bottom:'+(avg/mx*100).toFixed(1)+'%"></div>'; $('d-ax').innerHTML=ax;
+    $('d-bt').textContent=(metric==='r'?'Revenue':'Orders')+' by day, last 14 days'; pick(13);
+  }
+  function pick(i){ var x=barVals[i]; if(!x) return; [].forEach.call($('d-bars').querySelectorAll('button'),function(b,j){ b.classList.toggle('sel',j===i); });
+    $('d-read').innerHTML='<b>'+lab(x.d)+(x.d===L?', through '+hr(H):'')+':</b> '+show(x.v,metric)+'. Same weekday last year: '+(x.ly==null?'none, a new market':show(x.ly,metric))+'. '+(x.ly==null?'':cmp(x.v,x.ly,metric)); }
+  function heat(){
+    var cols=[],mx=1; for(var d=L-6;d<=L;d++) cols.push(d);
+    var g=cols.map(function(d){ var a=[]; for(var h=0;h<24;h++){ var v=(d===L&&h>H)?null:S(T,metric,d*24+h,d*24+h); a.push(v); if(v>mx) mx=v; } return a; });
+    var h='<thead><tr><th>Hour</th>'+cols.map(function(d){ return '<th>'+lab(d)+'</th>'; }).join('')+'</tr></thead><tbody>';
+    for(var r=0;r<24;r++){ h+='<tr><th>'+hr(r)+'</th>'+g.map(function(a){ var v=a[r]; return v==null?'<td></td>':'<td style="background:color-mix(in srgb,var(--dash) '+Math.round(v/mx*48)+'%,var(--paper))">'+num(v)+'</td>'; }).join('')+'</tr>'; }
+    h+='<tr class="tot"><th>Total</th>'+g.map(function(a){ return '<td>'+num(a.reduce(function(t,v){ return t+(v||0); },0))+'</td>'; }).join('')+'</tr></tbody>';
+    $('d-heat').innerHTML=h;
+  }
+  function tiles(){
+    var a=L*24,b=K,h=''; [['Revenue','r'],['Orders','o'],['Avg order value','aov']].forEach(function(x){ var cur=val(T,x[1],a,b);
+      h+='<div class="tl"><small>'+x[0]+'</small><b>'+show(cur,x[1])+'</b>'+cmp(cur,val(T,x[1],a-24,b-24),x[1],' vs yesterday')+cmp(cur,val(T,x[1],a-168,b-168),x[1],' vs last week')+cmp(cur,val(LY,x[1],a,b),x[1],' vs last year')+'</div>'; });
+    $('d-tiles').innerHTML=h; $('d-fresh').textContent='Showing '+lab(L)+', 12 AM to '+hr(H)+'. Every comparison uses the same hours.';
+  }
+  var ser=[], X=function(h){ return 46+h*(584/23); };
+  function chart(){
+    ser=[[],[],[],[]]; var mx=1;
+    for(var h=0;h<24;h++){ ser[0].push(h<=H?S(T,'r',L*24+h,L*24+h):null); ser[1].push(S(T,'r',(L-1)*24+h,(L-1)*24+h)); ser[2].push(S(T,'r',(L-7)*24+h,(L-7)*24+h)); ser[3].push(S(LY,'r',L*24+h,L*24+h)); }
+    ser.forEach(function(s){ s.forEach(function(v){ if(v>mx) mx=v; }); }); var st=[50,100,200,250,500,1000,2000,2500,5000,10000,20000,25000,50000].filter(function(x){ return x*4>=mx; })[0]||100000; mx=st*4;
+    var Y=function(v){ return 212-v/mx*196; };
+    function path(s){ var d='',pen=false; s.forEach(function(v,h){ if(v==null){ pen=false; return; } d+=(pen?'L':'M')+X(h).toFixed(1)+' '+Y(v).toFixed(1); pen=true; }); return d; }
+    var o=''; for(var i=0;i<=4;i++){ var v=mx*i/4; o+='<line class="g" x1="46" x2="630" y1="'+Y(v)+'" y2="'+Y(v)+'"/><text x="40" y="'+(Y(v)+4)+'" text-anchor="end">'+money(v)+'</text>'; }
+    for(var h2=0;h2<24;h2+=3) o+='<text x="'+X(h2)+'" y="232" text-anchor="middle">'+hr(h2)+'</text>';
+    o+='<path class="s3" d="'+path(ser[3])+'"/><path class="s2" d="'+path(ser[2])+'"/><path class="s1" d="'+path(ser[1])+'"/><path class="s0" d="'+path(ser[0])+'"/>';
+    ser[0].forEach(function(v,h){ if(v!=null) o+='<circle cx="'+X(h).toFixed(1)+'" cy="'+Y(v).toFixed(1)+'" r="3"/>'; });
+    o+='<line class="guide" id="d-guide" x1="0" x2="0" y1="16" y2="212"/>';
+    $('d-line').innerHTML=o; readHour(H);
+  }
+  function readHour(h){ var g=$('d-guide'); if(g){ g.setAttribute('x1',X(h)); g.setAttribute('x2',X(h)); }
+    function v(i){ return ser[i][h]==null?'&ndash;':money(ser[i][h]); }
+    $('d-lread').innerHTML='<b>'+hr(h)+':</b> today '+v(0)+' &middot; yesterday '+v(1)+' &middot; last week '+v(2)+' &middot; last year '+v(3); }
+  function table(){
+    var a=L*24,b=K, list=ms.slice().sort(function(p,q){ return S(T,'r',a,b,[q])-S(T,'r',a,b,[p]); });
+    function d2(x,y){ return (y==null||!y)?'':cmp(x,y,'r'); }
+    function row(name,set,cls){ var r=S(T,'r',a,b,set); return '<tr'+(cls?' class="'+cls+'"':'')+'><th>'+name+'</th><td>'+num(S(T,'o',a,b,set))+'</td><td>$'+num(r)+'</td><td>'+d2(r,S(T,'r',a-24,b-24,set))+'</td><td>'+d2(r,S(T,'r',a-168,b-168,set))+'</td><td>'+d2(r,S(LY,'r',a,b,set))+'</td></tr>'; }
+    $('d-mk').innerHTML='<thead><tr><th>Market</th><th>Orders</th><th>Revenue</th><th>vs yesterday</th><th>vs last week</th><th>vs last year</th></tr></thead><tbody>'+list.map(function(i){ return row(MK[i][0],[i]); }).join('')+(list.length>1?row('Total',ms,'tot'):'')+'</tbody>';
+  }
+  function all(){ kpi(); bars(); heat(); tiles(); chart(); table(); }
+  var sel=$('d-market'); sel.innerHTML='<option value="all">All markets</option>'+MK.map(function(m,i){ return '<option value="'+i+'">'+m[0]+'</option>'; }).join('');
+  sel.addEventListener('change',function(){ ms=sel.value==='all'?ALL:[+sel.value]; all(); });
+  root.addEventListener('click',function(e){ var b=e.target.closest('button'); if(!b) return;
+    if(b.dataset.page){ $('dp1').hidden=b.dataset.page!=='1'; $('dp2').hidden=b.dataset.page!=='2'; press(b); }
+    else if(b.dataset.m){ metric=b.dataset.m; press(b); bars(); heat(); }
+    else if(b.dataset.i){ pick(+b.dataset.i); } });
+  function press(b){ [].forEach.call(b.parentNode.children,function(x){ x.setAttribute('aria-pressed',x===b?'true':'false'); }); }
+  $('d-bars').addEventListener('mouseover',function(e){ var b=e.target.closest('button'); if(b&&b.dataset.i) pick(+b.dataset.i); });
+  $('d-line').addEventListener('pointermove',function(e){ var r=this.getBoundingClientRect(), x=(e.clientX-r.left)/r.width*640; readHour(Math.max(0,Math.min(23,Math.round((x-46)/(584/23))))); });
+  all();
+})();
+
+</script>
+
+</body>
+</html>
