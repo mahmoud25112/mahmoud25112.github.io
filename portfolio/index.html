@@ -15,15 +15,16 @@
 <link rel="canonical" href="https://mahmoud25112.github.io/portfolio/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111111'/%3E%3Ctext x='32' y='43' font-family='system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='30' font-weight='700' text-anchor='middle' fill='%23ffffff'%3Ems%3C/text%3E%3C/svg%3E">
 <title>Mahmoud Saad · Measurement Portfolio</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400..600&display=swap">
 <style>
 /* Layout: black on white with one accent. Grey is context, the accent is the point of each chart. Home is short; each case opens as its own view. */
 :root{
   --paper:#FFFFFF; --surface:#F5F6F8; --ink:#111111; --muted:#4B5563; --line:#E5E7EB; --base:#949494; --soft:#E3E5EA;
   --accent:#1D4ED8; --tint:#EEF2FF; --bright:#8AA4FF; --on-accent:#FFFFFF;
   --pos:#15803D; --neg:#B91C1C; --dash:#0B8F84;
-  --serif:"Instrument Serif","Iowan Old Style",Georgia,serif;
-  --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --serif:"Geist","Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --sans:"Geist","Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
 }
 :root[data-pal="violet"]{--accent:#6D28D9;--tint:#F3EEFF;--bright:#B49CFF}
 :root[data-pal="orange"]{--accent:#C2410C;--tint:#FFF1E8;--bright:#FF9A62;--neg:#111111}
@@ -465,6 +466,76 @@ footer{padding-block:24px 84px;font-size:13px;color:var(--muted)}
   .casenav{flex-direction:column}
   .pal span{display:none} .pal{padding:8px 10px}
 }
+
+/* Type: Geist for everything, Geist Mono for small labels. Headings are set tight and semibold. */
+h1,h2,h3{font-weight:600;letter-spacing:-.035em;line-height:1.06}
+.hero h1{font-size:clamp(36px,5.4vw,62px)}
+.hero h1 em{font-style:normal}
+.sec-head h2,.about h2{font-size:clamp(26px,3.6vw,38px)}
+.skills h2{font-size:clamp(26px,3.4vw,36px)}
+.now h2{font-size:clamp(24px,3.2vw,34px)}
+.case h3{font-size:clamp(28px,4vw,44px)}
+.contact h2{font-size:clamp(30px,4.6vw,50px)}
+.receipt h3{font-size:22px;letter-spacing:-.025em;line-height:1.2}
+.g .big{font-size:27px;font-weight:600;letter-spacing:-.035em}
+.pc-name{font-size:28px;font-weight:600;letter-spacing:-.03em}
+.pc-stats b{font-size:24px;font-weight:600;letter-spacing:-.02em}
+.stat b{font-size:24px;font-weight:600;letter-spacing:-.025em}
+.stile b{font-size:28px;font-weight:600;letter-spacing:-.03em}
+.dh{font-weight:600;font-size:18px;letter-spacing:-.01em}
+.dbrand{font-weight:600;font-size:18px}
+.eyebrow,.kicker,.receipt .tag,.g .n{font-family:var(--mono);font-weight:500;letter-spacing:.04em;font-size:12px}
+.svgc text{font-family:var(--sans)}
+
+/* Motion: bars grow from zero in reading order, lines draw, dots land after their line, tiles rise in turn. */
+@keyframes pop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.in .dv-row:nth-child(1) .dv-t i{animation-delay:.15s}
+.in .dv-row:nth-child(2) .dv-t i{animation-delay:.32s}
+.in .dv-row:nth-child(3) .dv-t i{animation-delay:.49s}
+.in .sc-row:nth-child(2) .sc-t i{animation-delay:.15s}
+.in .sc-row:nth-child(3) .sc-t i{animation-delay:.3s}
+.in .sc-row:nth-child(4) .sc-t i{animation-delay:.45s}
+.in .sc-row:nth-child(5) .sc-t i{animation-delay:.6s}
+.in .share div:nth-child(2) u i{animation-delay:.45s}
+.db-t i.ln{transform-origin:left}
+.in .db-t i.ln{animation:grow .7s cubic-bezier(.2,.8,.2,1) both}
+.in .db-t i.a{animation:pop .4s cubic-bezier(.3,1.4,.5,1) both}
+.in .db-t i.m{animation:pop .45s cubic-bezier(.3,1.4,.5,1) both}
+.in .db-row:nth-child(1) i.a{animation-delay:.1s}  .in .db-row:nth-child(1) i.ln{animation-delay:.25s} .in .db-row:nth-child(1) i.m{animation-delay:.6s}
+.in .db-row:nth-child(2) i.a{animation-delay:.25s} .in .db-row:nth-child(2) i.ln{animation-delay:.4s}  .in .db-row:nth-child(2) i.m{animation-delay:.75s}
+.in .db-row:nth-child(3) i.a{animation-delay:.4s}  .in .db-row:nth-child(3) i.ln{animation-delay:.55s} .in .db-row:nth-child(3) i.m{animation-delay:.9s}
+.in .db-row:nth-child(4) i.a{animation-delay:.55s} .in .db-row:nth-child(4) i.ln{animation-delay:.7s}  .in .db-row:nth-child(4) i.m{animation-delay:1.05s}
+.in .db-row:nth-child(5) i.a{animation-delay:.7s}  .in .db-row:nth-child(5) i.ln{animation-delay:.85s} .in .db-row:nth-child(5) i.m{animation-delay:1.2s}
+.svgc circle{transform-box:fill-box;transform-origin:center}
+.in .svgc circle{animation:pop .45s 1.15s cubic-bezier(.3,1.4,.5,1) both}
+.in .svgc .d-k{animation-delay:.05s}
+.in .svgc .avg{animation:fade .6s .9s both}
+.in .svgc .tan{animation:fade .5s 1.25s both}
+.in .svgc .br,.in .svgc text.a,.in .svgc text.k{animation:fade .5s 1.2s both}
+.in .rl{animation:fade .5s .8s both}
+.in .stat,.in .stile{animation:rise .6s cubic-bezier(.2,.8,.2,1) both}
+.in .stat:nth-child(2),.in .stile:nth-child(2){animation-delay:.12s}
+.in .stat:nth-child(3),.in .stile:nth-child(3){animation-delay:.24s}
+.in .stile:nth-child(4){animation-delay:.36s}
+.in .g{animation:rise .55s cubic-bezier(.2,.8,.2,1) both}
+.in .g:nth-child(2){animation-delay:.07s} .in .g:nth-child(3){animation-delay:.14s} .in .g:nth-child(4){animation-delay:.21s} .in .g:nth-child(5){animation-delay:.28s} .in .g:nth-child(6){animation-delay:.35s}
+@media (prefers-reduced-motion: reduce){ *,*::before,*::after{animation:none!important;transition:none!important} }
+
+/* Hover focus: the row under the pointer stays, the rest step back. */
+.dv:hover .dv-row,.sc:hover .sc-row,.db:hover .db-row,.share:hover > div{transition:opacity .2s}
+.dv:hover .dv-row:not(:hover),.db:hover .db-row:not(:hover),.share:hover > div:not(:hover){opacity:.35}
+.sc-row{transition:opacity .2s}
+.sc-row:hover{outline:1px solid var(--line)}
+/* Spend slider on the response curve */
+.spend{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;align-items:center;margin-top:14px;font-size:14.5px}
+.spend label{font-weight:600}
+.spend input{width:100%;accent-color:var(--accent)}
+.spend output{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.spend output span{background:var(--surface);border-radius:10px;padding:10px 12px;color:var(--muted);font-size:13px;line-height:1.35}
+.spend output b{display:block;font-size:22px;font-weight:600;letter-spacing:-.02em;color:var(--ink)}
+.spend output span.nx b{color:var(--accent)}
+.spend .verdict{grid-column:1/-1;font-size:13.5px;color:var(--ink);font-weight:500}
 </style>
 </head>
 <body>
@@ -495,7 +566,7 @@ footer{padding-block:24px 84px;font-size:13px;color:var(--muted)}
         <a class="btn" href="https://mahmoud25112.github.io/Mahmoud_Saad_Resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
       </div>
     </div>
-    <aside class="receipt" aria-label="Example finding: weather and Memorial Day sales">
+    <aside data-reveal class="receipt" aria-label="Example finding: weather and Memorial Day sales">
       <p class="tag">One finding, start to finish</p>
       <h3>Sales fell 3.3%. The drop followed the rain.</h3>
       <div class="dv">
@@ -952,20 +1023,20 @@ footer{padding-block:24px 84px;font-size:13px;color:var(--muted)}
       <div data-reveal>
         <figure class="fig">
           <p class="fig-title">A channel can look profitable on average while its next dollar barely pays back</p>
-          <p class="fig-sub">One channel's response curve. Illustrative.</p>
-          <svg class="svgc wid" viewBox="0 0 560 330" role="img" aria-label="A curve of sales against spend that rises steeply and then flattens. At today's spend, the average return is steep while the return on the next dollar is nearly flat.">
+          <p class="fig-sub">One channel's response curve. Drag the spend and watch both returns move. Illustrative.</p>
+          <svg class="svgc wid" data-geo="56,540,280,36,20" viewBox="0 0 560 330" role="img" aria-label="A curve of sales against spend that rises steeply and then flattens. At today's spend, the average return is steep while the return on the next dollar is nearly flat.">
             <path class="ax" d="M56 24V280H540"/>
             <path class="avg" d="M56 280L404.5 55.2"/>
             <path class="curve" pathLength="1" d="M56.0 280.0L60.8 279.2L65.7 277.3L70.5 274.6L75.4 271.3L80.2 267.5L85.0 263.2L89.9 258.6L94.7 253.7L99.6 248.5L104.4 243.1L109.2 237.6L114.1 232.1L118.9 226.4L123.8 220.8L128.6 215.2L133.4 209.6L138.3 204.0L143.1 198.6L148.0 193.2L152.8 187.9L157.6 182.8L162.5 177.7L167.3 172.8L172.2 168.1L177.0 163.4L181.8 158.9L186.7 154.5L191.5 150.3L196.4 146.2L201.2 142.2L206.0 138.4L210.9 134.7L215.7 131.1L220.6 127.6L225.4 124.3L230.2 121.1L235.1 117.9L239.9 114.9L244.8 112.0L249.6 109.2L254.4 106.5L259.3 103.9L264.1 101.4L269.0 98.9L273.8 96.6L278.6 94.3L283.5 92.1L288.3 90.0L293.2 87.9L298.0 85.9L302.8 84.0L307.7 82.2L312.5 80.4L317.4 78.6L322.2 76.9L327.0 75.3L331.9 73.8L336.7 72.2L341.6 70.8L346.4 69.3L351.2 67.9L356.1 66.6L360.9 65.3L365.8 64.0L370.6 62.8L375.4 61.6L380.3 60.5L385.1 59.4L390.0 58.3L394.8 57.2L399.6 56.2L404.5 55.2L409.3 54.3L414.2 53.3L419.0 52.4L423.8 51.5L428.7 50.7L433.5 49.8L438.4 49.0L443.2 48.2L448.0 47.5L452.9 46.7L457.7 46.0L462.6 45.3L467.4 44.6L472.2 43.9L477.1 43.2L481.9 42.6L486.8 42.0L491.6 41.4L496.4 40.8L501.3 40.2L506.1 39.6L511.0 39.1L515.8 38.5L520.6 38.0L525.5 37.5L530.3 37.0L535.2 36.5L540.0 36.0"/>
             <path class="tan" d="M341.6 67.9L467.4 42.5"/>
             <circle class="dot" cx="404.5" cy="55.2" r="7"/>
-            <text x="56" y="312">Spend on the channel</text>
+            <text x="540" y="321" text-anchor="end">Spend on the channel</text>
             <text x="20" y="152" text-anchor="middle" transform="rotate(-90 20 152)">Sales it drives</text>
             <text class="a" x="404.5" y="35.2" text-anchor="middle">Next $1: slope here (weak)</text>
             <text class="k" x="392" y="196" text-anchor="middle">Average: slope of the</text><text class="k" x="392" y="213" text-anchor="middle">dashed line (strong)</text>
             <text x="404.5" y="298" text-anchor="middle">Spend today</text>
           </svg>
-          <svg class="svgc nar" viewBox="0 0 300 280" role="img" aria-label="A curve of sales against spend that rises steeply and then flattens. At today's spend, the average return is steep while the return on the next dollar is nearly flat.">
+          <svg class="svgc nar" data-geo="34,292,232,48,28" viewBox="0 0 300 280" role="img" aria-label="A curve of sales against spend that rises steeply and then flattens. At today's spend, the average return is steep while the return on the next dollar is nearly flat.">
             <path class="ax" d="M34 20V232H292"/>
             <path class="avg" d="M34 232L219.8 62.5"/>
             <path class="curve" pathLength="1" d="M34.0 232.0L36.6 231.4L39.2 229.9L41.7 227.9L44.3 225.5L46.9 222.6L49.5 219.4L52.1 215.9L54.6 212.1L57.2 208.2L59.8 204.2L62.4 200.1L65.0 195.9L67.5 191.6L70.1 187.4L72.7 183.1L75.3 178.9L77.9 174.7L80.4 170.6L83.0 166.5L85.6 162.6L88.2 158.7L90.8 154.9L93.3 151.2L95.9 147.6L98.5 144.1L101.1 140.7L103.7 137.4L106.2 134.2L108.8 131.1L111.4 128.1L114.0 125.2L116.6 122.4L119.1 119.7L121.7 117.1L124.3 114.6L126.9 112.1L129.5 109.8L132.0 107.5L134.6 105.3L137.2 103.2L139.8 101.2L142.4 99.2L144.9 97.3L147.5 95.4L150.1 93.7L152.7 92.0L155.3 90.3L157.8 88.7L160.4 87.1L163.0 85.6L165.6 84.2L168.2 82.8L170.7 81.5L173.3 80.1L175.9 78.9L178.5 77.7L181.1 76.5L183.6 75.3L186.2 74.2L188.8 73.1L191.4 72.1L194.0 71.1L196.5 70.1L199.1 69.2L201.7 68.2L204.3 67.3L206.9 66.5L209.4 65.6L212.0 64.8L214.6 64.0L217.2 63.2L219.8 62.5L222.3 61.8L224.9 61.1L227.5 60.4L230.1 59.7L232.7 59.1L235.2 58.4L237.8 57.8L240.4 57.2L243.0 56.6L245.6 56.1L248.1 55.5L250.7 55.0L253.3 54.5L255.9 54.0L258.5 53.5L261.0 53.0L263.6 52.5L266.2 52.0L268.8 51.6L271.4 51.2L273.9 50.7L276.5 50.3L279.1 49.9L281.7 49.5L284.3 49.1L286.8 48.7L289.4 48.4L292.0 48.0"/>
@@ -977,6 +1048,12 @@ footer{padding-block:24px 84px;font-size:13px;color:var(--muted)}
             <text class="k" x="222" y="160" text-anchor="middle">Average: slope of the</text><text class="k" x="222" y="177" text-anchor="middle">dashed line (strong)</text>
             <text x="219.8" y="250" text-anchor="middle">Spend today</text>
           </svg>
+          <div class="spend">
+            <label for="spend-x">Spend today</label>
+            <input type="range" id="spend-x" min="12" max="95" step="1" value="72" aria-describedby="spend-v">
+            <output for="spend-x"><span>Average so far<b data-avg>$2.60</b>sales per $1 spent</span><span class="nx">The next $1<b data-nx>$0.82</b>sales it adds</span></output>
+            <p class="verdict" id="spend-v" data-verdict>Past the bend: the average still looks good, but the next dollar does not pay back.</p>
+          </div>
         </figure>
         <figure class="fig">
           <p class="fig-title">Ranked by the next dollar, the order changes</p>
@@ -1207,6 +1284,71 @@ footer{padding-block:24px 84px;font-size:13px;color:var(--muted)}
   all();
 })();
 
+</script>
+
+<script>
+/* Count-up numbers and replay of each case's charts when it opens. */
+(function(){
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce||!('IntersectionObserver' in window)) return;
+  var SEL='.receipt .dv-v,.fig .dv-v,.g .big,.stat b,.stile b,.pc-stats b,.sc-v,.sc-r b,.db-v,.share b,.rl b';
+  var RX=/([+\u2212-]?)(\d{1,3}(?:,\d{3})+|\d+)(\.\d+)?/g;
+  function prep(el){ if(el._c) return el._c; var out=[],w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),n;
+    while((n=w.nextNode())){ if(/\d/.test(n.nodeValue)) out.push({n:n,t:n.nodeValue}); } return (el._c=out); }
+  function fmt(v,d,comma){ var s=v.toFixed(d); if(comma){ var p=s.split('.'); p[0]=p[0].replace(/\B(?=(\d{3})+(?!\d))/g,','); s=p.join('.'); } return s; }
+  function render(el,k){ prep(el).forEach(function(o){ o.n.nodeValue=o.t.replace(RX,function(m,sg,i,dec){
+    var v=parseFloat(i.replace(/,/g,'')+(dec||'')); return sg+fmt(v*k,dec?dec.length-1:0,i.indexOf(',')>-1); }); }); }
+  function run(el){ cancelAnimationFrame(el._raf); var t0=null,D=1200;
+    function f(ts){ if(t0===null) t0=ts; var p=Math.min(1,(ts-t0)/D); render(el,1-Math.pow(1-p,3)); if(p<1) el._raf=requestAnimationFrame(f); }
+    el._raf=requestAnimationFrame(f); }
+  var cio=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ cio.unobserve(e.target); run(e.target); } }); },{threshold:0});
+  var rio=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ rio.unobserve(e.target); e.target.classList.add('in'); } }); },{threshold:.1});
+  function arm(root){ root.querySelectorAll(SEL).forEach(function(el){ if(el.closest('.dash')) return; render(el,0); cio.observe(el); }); }
+  arm(document);
+  window.addEventListener('hashchange',function(){
+    var c=document.querySelector('.case.active'); if(!c) return;
+    c.querySelectorAll('[data-reveal]').forEach(function(x){ x.classList.remove('in'); rio.observe(x); });
+    arm(c);
+  });
+})();
+</script>
+
+<script>
+/* Response curve: drag the spend and both returns move. Same curve as the drawing, illustrative scale. */
+(function(){
+  var K=100,h=30,s=1.7,SCALE=2.3;
+  function f(x){ return K*Math.pow(x,s)/(Math.pow(h,s)+Math.pow(x,s)); }
+  function d(x){ var a=Math.pow(h,s),b=Math.pow(x,s); return K*s*a*Math.pow(x,s-1)/((a+b)*(a+b)); }
+  var input=document.getElementById('spend-x'); if(!input) return;
+  var fig=input.closest('figure');
+  var svgs=[].slice.call(fig.querySelectorAll('svg[data-geo]'));
+  function money(v){ return '$'+v.toFixed(2); }
+  function draw(x){
+    var avg=f(x)/x*SCALE, nx=d(x)*SCALE, fm=f(100);
+    svgs.forEach(function(svg){
+      var g=svg.getAttribute('data-geo').split(',').map(Number), X0=g[0],X1=g[1],Y0=g[2],Y1=g[3],lift=g[4];
+      var sx=function(v){return X0+(X1-X0)*v/100;}, sy=function(v){return Y0-(Y0-Y1)*v/fm;};
+      var px=sx(x),py=sy(f(x)),dx=13,sl=d(x);
+      svg.querySelector('.dot').setAttribute('cx',px.toFixed(1)); svg.querySelector('.dot').setAttribute('cy',py.toFixed(1));
+      svg.querySelector('.avg').setAttribute('d','M'+X0+' '+Y0+'L'+px.toFixed(1)+' '+py.toFixed(1));
+      var x1=Math.max(0,x-dx,x-f(x)/sl),x2=Math.min(100,x+dx);
+      svg.querySelector('.tan').setAttribute('d','M'+sx(x1).toFixed(1)+' '+sy(f(x)-sl*(x-x1)).toFixed(1)+'L'+sx(x2).toFixed(1)+' '+sy(f(x)+sl*(x2-x)).toFixed(1));
+      var weak=nx<avg, la=svg.querySelector('text.a');
+      la.textContent='Next $1: slope here ('+(weak?'weak':'strong')+')';
+      la.setAttribute('y',Math.max(14,py-lift).toFixed(1));
+      if(svg.classList.contains('wid')){ var vb=560,w=la.getComputedTextLength?la.getComputedTextLength():180; la.setAttribute('x',Math.min(vb-4-w/2,Math.max(X0+w/2,px)).toFixed(1)); }
+      var ks=svg.querySelectorAll('text.k'); if(ks[1]) ks[1].textContent='dashed line ('+(weak?'strong':'weak')+')';
+      [].forEach.call(svg.querySelectorAll('text'),function(t){ if(t.textContent==='Spend today'){ var tw=t.getComputedTextLength(), vw=svg.viewBox.baseVal.width; t.setAttribute('x',Math.min(vw-2-tw/2,Math.max(X0+tw/2,px)).toFixed(1)); } });
+    });
+    fig.querySelector('[data-avg]').textContent=money(avg);
+    fig.querySelector('[data-nx]').textContent=money(nx);
+    fig.querySelector('[data-verdict]').textContent = nx>=avg ? 'Before the bend: each extra dollar earns more than the average. Room to spend more.'
+      : nx>=1 ? 'Near the bend: the next dollar still pays back, but less than the average suggests.'
+      : 'Past the bend: the average still looks good, but the next dollar does not pay back.';
+  }
+  input.addEventListener('input',function(){ draw(+input.value); });
+  draw(+input.value);
+})();
 </script>
 
 </body>
